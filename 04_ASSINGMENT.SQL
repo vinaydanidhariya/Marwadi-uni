@@ -142,38 +142,42 @@ order by
 -- Q18. Change the size of Branch_state column.
 ALTER TABLE
     Bank_Branch
+MODIFY
+    (Branch_state varchar2(50));
+
+ALTER TABLE
+    Bank_Branch
 ALTER COLUMN
     Branch_state varchar2(50);
 
 -- Q19. Change the branch_name=’Union’ where id=B003.
 UPDATE
-    TABLE Bank_Branch
+    Bank_Branch
 SET
-    branch_name = "Union"
+    branch_name = 'Union'
 WHERE
-    Branch_id = "B003";
+    Branch_id = 'B003';
 
 -- Q20. Change the state=’Delhi’ of BOI branch.
 UPDATE
-    TABLE Bank_Branch
+    Bank_Branch
 SET
-    state = "Delhi"
+    branch_state = 'Delhi'
 WHERE
-    branch_name = "BOI";
+    branch_name = 'BOI';
 
 -- Q21. Change the branch_open_date=04-nov-2015 of Union branch.
 UPDATE
-    TABLE Bank_Branch
+    Bank_Branch
 SET
     branch_open_date = '04-nov-2015'
 WHERE
-    branch_name = "Union";
+    branch_name = 'Union';
 
 -- Q22. Add column Pincode in branch.
 ALTER TABLE
     Bank_Branch
-ADD
-    COLUMN pincode number(6);
+ADD COLUMN pincode number(6);
 
 -- Q23. Insert pincode=360006 of Dena Bank.
 UPDATE
@@ -181,7 +185,7 @@ UPDATE
 SET
     pincode = 360006
 WHERE
-    branch_name = "Dena Bank";
+    branch_name = 'Dena Bank';
 
 -- Q24. Insert pincode=360005 of state Delhi.
 UPDATE
@@ -189,7 +193,7 @@ UPDATE
 SET
     pincode = 360005
 WHERE
-    Branch_State = "Delhi";
+    Branch_State = 'Delhi';
 
 -- Q25. Delete information of ICICI.
 DELETE TABLE Bank_Branch
@@ -207,7 +211,17 @@ ALTER TABLE
 
 -- Q28. Display structure of Branch_master.
 DESC Branch_master;
+
 -- Q29. Create Banch_info from Branch_master.
-CREATE TABLE Banch_info AS SELECT * FROM Branch_master; 
+CREATE TABLE Banch_info AS
+SELECT
+    *
+FROM
+    Branch_master;
+
 -- Q30. Create Branch_detail from Branch_info.
-CREATE TABLE Branch_detail as SELECT * FROM Branch_info;
+CREATE TABLE Branch_detail as
+SELECT
+    *
+FROM
+    Branch_info;
