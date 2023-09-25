@@ -101,37 +101,64 @@ void display()
 
 void update(void)
 {
-    int updateValue, tmp = 0, updateEle,newEle;
+    int updateValue, tmp = 0, newEle;
     if (top == -1)
     {
         printf("\n The STACK is empty");
     }
     else
     {
-        printf("\n Enter value you want to update\n");
+        printf("\n Enter value you want to update: ");
         scanf("%d", &updateValue);
+        printf("Enter the new element: ");
+        scanf("%d", &newEle);
+
         for (int i = 0; i <= top; i++)
         {
             if (stack[i] == updateValue)
             {
-                printf("Enter New Element");
-                scanf("%d", &newEle);
                 stack[i] = newEle;
                 tmp = 1;
+                printf("\n Element updated successfully.");
             }
         }
+
         if (tmp == 0)
         {
-            printf("\n Value not found..");
+            printf("\n Value not found.");
         }
     }
 }
 
 void peep(void)
 {
-    int peepPosition;
-    printf("\n Enter value you want to Peep/search element\n");
-    scanf("%d", &peepPosition);
+    int searchValue;
+    int found = 0;
+    
+    if (top == -1)
+    {
+        printf("\n The STACK is empty");
+    }
+    else
+    {
+        printf("\n Enter the value you want to search for: ");
+        scanf("%d", &searchValue);
+
+        for (int i = 0; i <= top; i++)
+        {
+            if (stack[i] == searchValue)
+            {
+                printf("\n Element %d found at position %d", searchValue, i);
+                found = 1;
+            }
+        }
+
+        if (found == 0)
+        {
+            printf("\n Element %d not found in the stack.", searchValue);
+        }
+    }
 }
+
 // wap to print string in revers order using stack
 // wap for tower of hanoi
