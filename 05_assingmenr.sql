@@ -1,3 +1,9 @@
+-- set lines 256
+-- set trimout on
+-- set tab off
+-- FOR LULL VIEW
+
+
 ASSIGNMENT - 5 -- 1. Create the following table named table as CUSTOMER:
 -- COLUMN NAME DATATYPES SIZE DESCIPTION
 -- CUST_NO NUMBER 4 PRIMARY KEY
