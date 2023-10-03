@@ -4,7 +4,9 @@
 -- FOR LULL VIEW
 
 
-ASSIGNMENT - 5 -- 1. Create the following table named table as CUSTOMER:
+-- ASSIGNMENT - 5 
+
+-- 1. Create the following table named table as CUSTOMER:
 -- COLUMN NAME DATATYPES SIZE DESCIPTION
 -- CUST_NO NUMBER 4 PRIMARY KEY
 -- FIRST_NAME VARCHAR2 20 NOT NULL
@@ -16,7 +18,7 @@ ASSIGNMENT - 5 -- 1. Create the following table named table as CUSTOMER:
 -- B_DATE DATE - -
 -- STATUS CHAR 1 VALUES MUST BE IN (‘V’,’I’,’A’)
 CREATE TABLE CUSTOMER (
-    CUST_NO NUMBER(4) CONSTRAINT CUST_PK PRIMARY KEY,
+    CUST_NO NUMBER(4) CONSTRAINT CUST_PK_5 PRIMARY KEY,
     FIRST_NAME VARCHAR2(20) NOT NULL,
     LAST_NAME VARCHAR2(20),
     ADDRESS VARCHAR2(20),
@@ -34,21 +36,22 @@ CREATE TABLE CUSTOMER (
 -- 1005 RAJAN KUTTY A1 TRADERS KNR KERALA 670001 9-JUN-71 A
 -- 1006 SHILPA PAI 12/4B MNG KARNATAKA 574154 11-DEC-70 I
 -- 1007 BOSCO RAKSHIT R.K. PLAZA BNG KARNATAKA 576201 1-JAN-71 A
-INSERT INTO
-    CUSTOMER
-VALUES
-    (
-        & CUST_NO,
-        '&FIRST_NAME',
-        '&LAST_NAME',
-        '&ADDRESS',
-        "&CITY",
-        '&STATE',
-        '&PIN',
-        '&B_DATE',
-        '&STATUS'
-    );
+-- INSERT INTO
+--     CUSTOMER
+-- VALUES
+--     (
+--         & CUST_NO,
+--         '&FIRST_NAME',
+--         '&LAST_NAME',
+--         '&ADDRESS',
+--         "&CITY",
+--         '&STATE',
+--         '&PIN',
+--         '&B_DATE',
+--         '&STATUS'
+--     );
 
+-- 1
 INSERT INTO
     CUSTOMER
 VALUES
@@ -64,6 +67,7 @@ VALUES
         'V'
     );
 
+-- 2
 INSERT INTO
     CUSTOMER
 VALUES
@@ -79,6 +83,7 @@ VALUES
         'A'
     );
 
+-- 3
 INSERT INTO
     CUSTOMER
 VALUES
@@ -94,6 +99,7 @@ VALUES
         'A'
     );
 
+-- 4
 INSERT INTO
     CUSTOMER
 VALUES
@@ -109,6 +115,7 @@ VALUES
         'I'
     );
 
+-- 5
 INSERT INTO
     CUSTOMER
 VALUES
@@ -132,6 +139,7 @@ from
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
+--       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
 --       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
@@ -148,16 +156,25 @@ UPDATE CUSTOMER SET ADDRESS='KAVI MUDDANNA MARG',PIN=576104 WHERE CUST_NO=1003;
 -- 1 row updated.
 
 -- 8. Delete the records of KARNATAKA state from the table and then retrieve all the records back.
+commit;
+-- Commit complete.
+
 DELETE CUSTOMER WHERE  STATE='KARNATAKA';
--- 2 rows deleted.
+-- 1 rows deleted.
+
 ROLLBACK;
 -- Rollback complete.
 
 SELECT * FROM CUSTOMER;
+--    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
+-- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
+--       1004 FELIX                SIMON                M-J-56               PJM      GOA                  476001 12-FEB-71 A
+--       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
+--       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
 
 -- 9. List all the records for INVALID (‘I’) persons.
 SELECT * FROM CUSTOMER WHERE STATUS='I';
-
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
@@ -177,10 +194,9 @@ SELECT * FROM CUSTOMER ORDER BY STATE;
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1004 FELIX                SIMON                M-J-56               PJM      GOA                  403002 12-FEB-71 A
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
+--       1004 FELIX                SIMON                M-J-56               PJM      GOA                  476001 12-FEB-71 A
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 
 -- 12. Sort and display the state field in descending order.
@@ -196,20 +212,18 @@ SELECT STATE FROM CUSTOMER ORDER BY STATE DESC;
 
 -- 13. Select the records of KARNATAKA customers who are valid ('V').
 SELECT * FROM CUSTOMER WHERE STATE = 'KARNATAKA' AND STATUS = 'V';
-
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 
 -- 14. Retrieve records of Karnataka / Kerala customers.
 SELECT * FROM CUSTOMER WHERE STATE IN ('KARNATAKA', 'KERALA');
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
 -- 15. Retrieve records of Karnataka / Kerala customers who are ACTIVE ('A').
 SELECT * FROM CUSTOMER WHERE STATE IN ('KARNATAKA', 'KERALA') AND STATUS = 'A';
@@ -217,24 +231,21 @@ SELECT * FROM CUSTOMER WHERE STATE IN ('KARNATAKA', 'KERALA') AND STATUS = 'A';
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
 
 -- 16. Retrieve records of Karnataka customers with pin code 576201.
 SELECT * FROM CUSTOMER WHERE STATE = 'KARNATAKA' AND PIN = '576201';
---    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
--- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
+
+-- no rows selected
 
 -- 17. Display all the rows from the table except 1005.
 SELECT * FROM CUSTOMER WHERE CUST_NO != 1005;
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
---       1004 FELIX                SIMON                M-J-56               PJM      GOA                  403002 12-FEB-71 A
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
+--       1004 FELIX                SIMON                M-J-56               PJM      GOA                  476001 12-FEB-71 A
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
 
 -- 18. Retrieve rows where the state name begins with K and followed by any other character.
@@ -242,10 +253,9 @@ SELECT * FROM CUSTOMER WHERE STATE LIKE 'K%';
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
 
 -- 19. Retrieve rows where the name contains the word RAJ embedded in it.
@@ -253,37 +263,37 @@ SELECT * FROM CUSTOMER WHERE (FIRST_NAME) LIKE '%RAJ%';
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 
 
 -- 20. Display all the rows whose CUST_NO is from 1003 to 1005.
 SELECT * FROM CUSTOMER WHERE CUST_NO BETWEEN 1003 AND 1005;
+
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
---       1004 FELIX                SIMON                M-J-56               PJM      GOA                  403002 12-FEB-71 A
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
+--       1004 FELIX                SIMON                M-J-56               PJM      GOA                  476001 12-FEB-71 A
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 
 -- 21. Display all the rows whose dates are in the range of 10-JAN-70 and 31-JUL-96.
 SELECT * FROM CUSTOMER where B_DATE between to_date('15-JAN-70') and to_date('17-JUL-96');
--- 22. Retrieve all the rows where the city column equals to UDP or MNG or BNG or PGN.
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
---       1004 FELIX                SIMON                M-J-56               PJM      GOA                  403002 12-FEB-71 A
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
+--       1004 FELIX                SIMON                M-J-56               PJM      GOA                  476001 12-FEB-71 A
 --       1005 RAJAN                KUTTY                A1 TRADERS           KNR      KERALA               670001 09-JUN-71 A
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
 
+-- 22. Retrieve all the rows where the city column equals to UDP or MNG or BNG or PGN.
 SELECT * FROM CUSTOMER WHERE CITY IN ('UDP', 'MNG', 'BNG', 'PGN');
 
 --    CUST_NO FIRST_NAME           LAST_NAME            ADDRESS              CITY     STATE                PIN    B_DATE    S
 -- ---------- -------------------- -------------------- -------------------- -------- -------------------- ------ --------- -
---       1003 RAJ                  BAHADUR              SHANTI VILLA         UDP      KARNATAKA            576101 01-AUG-70 V
+--       1003 RAJ                  BAHADUR              KAVI MUDDANNA MARG   UDP      KARNATAKA            576104 01-AUG-70 V
 --       1006 SHILPA               PAI                  12/4B                MNG      KARNATAKA            574154 11-DEC-70 I
---       1007 BOSCO                RAKSHIT              R.K. PLAZA           BNG      KARNATAKA            576201 01-JAN-71 A
+
 
 -- 23. Rename customer table to CUST.
 ALTER TABLE CUSTOMER RENAME TO CUST;
