@@ -1,0 +1,49 @@
+<!-- 1. Check the output of following commands: Date, Is, who, cal,ps,wc,cat,uname,pwd,mkdir rmdir,cd,cp,rm,mv, chmod, -->
+
+
+<!-- 2. Check the output of following filter commands:
+diff,grep, sed, head, tail,cut, paste, sort, find 
+
+
+3. Write shell script to accept numbers and perform addition, subtraction, multiplication and division
+
+4. Write shell script to accept the string and check whether the string is palindrome or not. -->
+
+#!/bin/bash
+
+# Function to check if a string is a palindrome
+is_palindrome() {
+  local string="$1"
+  local reversed=""
+  local len=${#string}
+
+  for (( i=len-1; i>=0; i-- )); do
+    reversed="${reversed}${string:$i:1}"
+  done
+
+  if [ "$string" = "$reversed" ]; then
+    echo "The string is a palindrome."
+  else
+    echo "The string is not a palindrome."
+  fi
+}
+
+# Main script
+read -p "Enter a string: " input_string
+
+# Remove leading and trailing whitespace
+input_string="${input_string// /}"
+
+# Convert to lowercase (optional, you can remove this line if case-sensitive)
+input_string=$(echo "$input_string" | tr '[:upper:]' '[:lower:]')
+
+is_palindrome "$input_string"
+
+
+<!-- 
+5. Write shell script to accept the number and check whether the no. is odd or even. Find length of no. and sum of digits in the number.
+6. Write shell script to accept the string and replace it by another string.
+7. Accept the filename and display the last modification time if file exists, otherwise display appropriate message.
+8. Fetch the data from file and display data into another file in reverse order.
+9. Write a script to delete zero sized files from a given directory (and all its sub-directories).
+10. Write a shell script print all the prime numbers from 1 to 300. (Use nested loops, break and continue)  -->
