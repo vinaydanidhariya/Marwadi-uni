@@ -1,4 +1,4 @@
-wap create array of size 10 and search element from it
+// wap create array of size 10 and search element from it
 
 
 #include <stdio.h>
@@ -22,7 +22,7 @@ int main()
     return 0;
 }
 
-wap create an array and display and sum and average of int
+// wap create an array and display and sum and average of int
 
 
 #include <stdio.h>
@@ -44,7 +44,7 @@ int main()
 }
 
 
-create an array a ,b ,c and perform c = a + b merge to array
+// create an array a ,b ,c and perform c = a + b merge to array
 
 #include <stdio.h>
 #include <conio.h>
@@ -62,7 +62,7 @@ int main(){
 }
 
 
-wap to crate an array to find largest element from an array  
+// wap to crate an array to find largest element from an array  
 
 
 
