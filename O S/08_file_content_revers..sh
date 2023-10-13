@@ -1,18 +1,31 @@
 #!/bin/bash
 
-# Function to reverse the content of a file into a new file
-reverse_content_to_new_file() {
-  read -p "Enter the input filename: " input_file
-  read -p "Enter the output filename: " output_file
+# Check if the input file exists
+if [ ! -f "$1" ]; then
+  echo "Input file not found."
+  exit 1
+fi
 
-  if [ -e "$input_file" ]; then
-    # Use tac to reverse the lines and save the result in the output file
-    tac "$input_file" > "$output_file"
-    echo "Data from '$input_file' has been reversed and saved to '$output_file'."
-  else
-    echo "The input file '$input_file' does not exist."
-  fi
-}
+# Get the input file name from the command-line argument
+input_file="$1"
 
-# Main script
-reverse_content_to_new_file
+# Check if the output file name is provided, if not, use a default name
+if [ -z "$2" ]; then
+  output_file="reversed_output.txt"
+else
+  output_file="$2"
+fi
+
+# Read the lines from the input file into an array
+readarray -t lines < "$input_file"
+
+# Reverse the array
+reversed_lines=()
+for ((i = ${#lines[@]} - 1; i >= 0; i--)); do
+  reversed_lines+=("${lines[i]}")
+done
+
+# Write the reversed array to the output file
+printf "%s\n" "${reversed_lines[@]}" > "$output_file"
+
+echo "Data from '$input_file' has been written to '$output_file' in reverse order."
