@@ -1,0 +1,9 @@
+# ignore all .class files
+*.class
+
+# ignore all .class files
+*.exe
+
+# ignore all .md files
+*.md
+

@@ -7,13 +7,15 @@
 -- E4     Janak     HJ Road-16      Pune
 -- E5     Naman     Mira Nager-20   Mumbai
 -- Q1. Create above table.
-CREATE TABLE
-    Employee (
-        Emp_no varchar2 (2),
-        Emp_name varchar2 (10),
-        Emp_street varchar2 (20),
-        Emp_city varchar2 (10)
-    );
+--  drop table employee;
+-- drop table emp_detail;
+--  drop table emp;
+CREATE TABLE Employee (
+    Emp_no varchar2 (2),
+    Emp_name varchar2 (10),
+    Emp_street varchar2 (20),
+    Emp_city varchar2 (10)
+);
 
 -- Q2. Insert given data into table.
 INSERT INTO
@@ -180,7 +182,8 @@ WHERE
 -- -- ---------- -------------------- ----------
 -- E2 Shital     CG Raod-02           Ahmedabad
 -- Q14. Change the emp_id=1 of the employee who belongs to Rajkot.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_no = '1'
 WHERE
@@ -188,7 +191,8 @@ WHERE
 
 -- 1 row updated.
 -- Q15. Change emp_id=2 of employee who belongs to Mira Nager-20.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_no = '2'
 WHERE
@@ -196,7 +200,8 @@ WHERE
 
 -- 1 row updated.
 -- Q16. Change emp_id=3 of employee whose emp_name is Shital.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_no = '3'
 WHERE
@@ -204,7 +209,8 @@ WHERE
 
 -- 1 row updated.
 -- Q18. Change emp_id=4 of employee whose emp_name is Janak.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_no = '4'
 WHERE
@@ -212,7 +218,8 @@ WHERE
 
 -- 1 row updated.
 -- Q19. Change emp_id=5 of employee whose emp_city=Jamnagar.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_no = '5'
 WHERE
@@ -220,7 +227,8 @@ WHERE
 
 -- 1 row updated.
 -- Q20.Change emp_city = Mandvi of employee whose name is Janak.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_city = 'Mandvi'
 WHERE
@@ -228,19 +236,29 @@ WHERE
 
 -- 1 row updated.
 -- Q21. Add new Column State into Employee table.
-ALTER TABLE Employee Add State VARCHAR2 (15);
+ALTER TABLE
+    Employee
+Add
+    State VARCHAR2 (15);
 
 -- Table altered.
 -- Q22. Add column ph_no of employee.
-ALTER TABLE Employee Add ph_no NUMBER (10);
+ALTER TABLE
+    Employee
+Add
+    ph_no NUMBER (10);
 
 -- Table altered.
 -- Q23. Add new column salary into employee table.
-ALTER TABLE Employee Add salary number (8);
+ALTER TABLE
+    Employee
+Add
+    salary number (8);
 
 -- Table altered.
 -- Q24. Insert salary=2000 whose emp_name=’Riya’.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     salary = 2000
 WHERE
@@ -248,7 +266,8 @@ WHERE
 
 -- 1 row updated.
 -- Q25. Insert salary=5000 whose emp_id=2.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     salary = 5000
 WHERE
@@ -256,7 +275,8 @@ WHERE
 
 -- 1 row updated.
 -- Q26. Insert salary=52000 whose emp_id=3.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     salary = 52000
 WHERE
@@ -264,7 +284,8 @@ WHERE
 
 -- 1 row updated.
 -- Q27. Insert salary=89000 whose emp_street=mira nager.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     salary = 89000
 WHERE
@@ -272,7 +293,8 @@ WHERE
 
 -- 1 row updated.
 -- Q28. Insert salary=1500 whose emp_id=4.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     salary = 1500
 WHERE
@@ -280,7 +302,8 @@ WHERE
 
 -- 1 rows updated.
 -- Q30. Change emp_city=’banglor’ whose salary more than 60000.
-UPDATE Employee
+UPDATE
+    Employee
 SET
     emp_city = 'banglor'
 WHERE
@@ -288,8 +311,7 @@ WHERE
 
 -- 1 row updated.
 -- Q31. Create new table emp_detail from Employee.
-CREATE TABLE
-    emp_detail as
+CREATE TABLE emp_detail as
 select
     *
 from
@@ -307,15 +329,13 @@ where
 
 -- 1 row deleted.
 -- Q34. Delete column ph_no from EMP.
-ALTER TABLE EMP
-DROP COLUMN ph_no;
+ALTER TABLE
+    emp DROP COLUMN ph_no;
 
--- *
--- ERROR at line 1:
--- ORA-12988: cannot drop column from table owned by SYS
 -- Table altered.
--- Q36.Disvribe structure of emp_detail.
 -- Q35. Describe structure of EMP.
+desc emp;
+
 --  Name                                      Null?    Type
 --  ----------------------------------------- -------- ----------------------------
 --  EMP_NO                                             VARCHAR2(2)
@@ -324,6 +344,18 @@ DROP COLUMN ph_no;
 --  EMP_CITY                                           VARCHAR2(10)
 --  STATE                                              VARCHAR2(20)
 --  SALARY                                             NUMBER(20)
+-- Q36.Disvribe structure of emp_detail.
+desc emp_detail;
+
+--  Name                                      Null?    Type
+--  ----------------------------------------- -------- ----------------------------
+--  EMP_NO                                             VARCHAR2(2)
+--  EMP_NAME                                           VARCHAR2(10)
+--  EMP_STREET                                         VARCHAR2(20)
+--  EMP_CITY                                           VARCHAR2(10)
+--  STATE                                              VARCHAR2(15)
+--  PH_NO                                              NUMBER(10)
+--  SALARY                                             NUMBER(8)
 -- Q37. Display employee in sorted order by emp_name.
 SELECT
     *
