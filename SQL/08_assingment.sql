@@ -2,19 +2,6 @@
 -- EMPLOYEE (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary,
 -- experience, email)
 -- DEPARTMENT (dept_no, dept_name, location)
-CREATE TABLE EMPLOYEE (
-    emp_id primary key,
-    emp_name,
-    birth_date,
-    gender,
-    dept_no,
-    address,
-    designation,
-    salary,
-    experience,
-    email
-);
-
 -- 2. Create the EMPLOYEE Table with all necessary constraints such as
 -- In EMPLOYEE table: Employee id should be primary key, Department no should be Foreign key,
 -- employee age (birth_date) should be greater than 18 years, salary should be greater than zero, email
@@ -29,24 +16,13 @@ CREATE TABLE DEPARTMENT (
 CREATE TABLE EMPLOYEE (
     emp_id NUMBER(4) PRIMARY KEY,
     emp_name VARCHAR2(50),
-    birth_date DATE,
-    gender VARCHAR2(10),
-    dept_no VARCHAR2(4),
-    address VARCHAR2(255),
-    designation VARCHAR2(15),
-    salary NUMBER(10, 2),
-    experience NUMBER(2),
-    email VARCHAR2(50),
-    CONSTRAINT fk_dept FOREIGN KEY (dept_no) REFERENCES DEPARTMENT(dept_no),
-    CONSTRAINT chk_age CHECK (sysdate - birth_date >= 18 * 365.25),
-    -- 
-    CONSTRAINT chk_salary CHECK (salary > 0),
-    CONSTRAINT chk_email CHECK (
-        INSTR(email, '@') > 0
-        AND INSTR(email, '.', INSTR(email, '@')) > 0
-        AND LENGTH(email) <= 50
+    birth_date DATE CONSTRAINTS chk_age CHECK (
+        birth_date <= ADD_MONTHS(TO_DATE('23-10-2023', 'DD-MM-YYYY'), -216)
     ),
-    CONSTRAINT chk_designation CHECK (
+    gender VARCHAR2(10),
+    dept_no VARCHAR2(4) CONSTRAINTS fk_dept REFERENCES DEPARTMENT(dept_no),
+    address VARCHAR2(255),
+    designation VARCHAR2(15) CONSTRAINTS chk_designation CHECK (
         designation IN (
             'MANAGER',
             'CLERK',
@@ -56,9 +32,18 @@ CREATE TABLE EMPLOYEE (
             'CODER',
             'TESTER'
         )
+    ),
+    salary NUMBER(10, 2) CONSTRAINTS chk_salary CHECK (salary > 0),
+    experience NUMBER(2),
+    email VARCHAR2(50) CONSTRAINTS chk_email CHECK (
+        INSTR(email, '@') > 0
+        AND INSTR(email, '.', INSTR(email, '@')) > 0
+        AND LENGTH(email) <= 50
     )
 );
 
+
+INSERT INTO department VALUES('D1','vinay','adsadcacas');
 -- 3. Create DEPARTMENT table with necessary constraint such as
 -- Department no should be primary key, department name should be unique.
 -- 4. After creation of above tables, modify Employee table by adding the constraints as ‘Male’ or ‘Female’
@@ -93,7 +78,7 @@ VALUES
         'CODER',
         50000,
         5,
-        'vinaydanidhariya@gmail.com',
+        'vinaydanidhariya@gmail.com'
     );
 
 -- 6. Describe the structure of table created
