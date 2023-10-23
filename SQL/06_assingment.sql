@@ -405,5 +405,4 @@ order by
 -- 5  Harshid    Boriwali-05          Jamnagar
 -- Q40. Drop table emp_detail.
 DROP TABLE emp_detail;
-
 -- Table dropped.
