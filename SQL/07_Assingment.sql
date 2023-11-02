@@ -133,19 +133,18 @@ VALUES
 -- Constraints on EMPLOYEE table: Employee_Id Primary Key, Last_Name
 -- NotNull, Department_Id references DEPARTMENT table,Job_id references JOB
 -- TABLE.
-CREATE TABLE
-    EMPLOYEE (
-        EMPLOYEE_ID NUMBER (4) CONSTRAINTS employee_id_p_key PRIMARY KEY,
-        LAST_NAME VARCHAR2 (10) NOT NULL,
-        FIRST_NAME VARCHAR2 (10),
-        MIDDLE_NAME CHAR(1),
-        JOB_ID NUMBER (3) CONSTRAINTS job_id_f_key REFERENCES E_JOB (JOB_ID),
-        MANAGER_ID NUMBER (4),
-        HIRE_DATE DATE,
-        SALARY NUMBER (4),
-        COMM NUMBER (3),
-        DEPARTMENT_ID NUMBER (20) CONSTRAINTS department_id_f_key REFERENCES DEPARTMENT (DEPARTMENT_ID)
-    );
+CREATE TABLE EMPLOYEE (
+    EMPLOYEE_ID NUMBER(4) CONSTRAINTS employee_id_p_key PRIMARY KEY,
+    LAST_NAME VARCHAR2(10) NOT NULL,
+    FIRST_NAME VARCHAR2(10),
+    MIDDLE_NAME CHAR(1),
+    JOB_ID NUMBER(3) CONSTRAINTS job_id_f_key REFERENCES JOB(JOB_ID),
+    MANAGER_ID NUMBER(4),
+    HIRE_DATE DATE,
+    SALARY NUMBER(4),
+    COMM NUMBER(3),
+    DEPARTMENT_ID NUMBER(2) CONSTRAINTS department_id_f_key REFERENCES DEPARTMENT(DEPARTMENT_ID)
+);
 
 -- Table created.
 -- 8. Insert the following records into EMPLOYEE table:

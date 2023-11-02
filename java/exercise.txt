@@ -1,0 +1,60 @@
+Abstract Class
+
+5. create abstract class Vehicle that have abstract method engine().
+create car class that extends vehicle that override method of vehicle
+and give message as "car engine”. Create main class call car engine
+method.
+
+6. Create Instrument abstract class that have data member name as
+String and abstract method play(). create abstract class
+StringInstrument that extends Instrument that have data member
+numberofStrings as int. create ElectricGuitar that extends
+StringInstrument in constructor assign name="Guitar" and
+NumberofStrings=6 manually override play method that print
+numberofString and name. Now create main class create object of
+ElectricGuitar, and take appropriate output by calling methods.
+
+7. Create abstract class person that have two data member name and
+gender as String. That have parameterized constructor in which two
+parameter is there one for name other for gender assign that value to
+class instance variable. It also has abstract method work and also has
+display method that will print name and gender. Create another class
+Employee that extends Person that have one data member empId as
+integer in that constructor it have 3 parameters name, gender and
+empId now assign name and gender two super class instance variable
+using super keyword and id to current class instance variable. it
+override work method in which check if empId is equals to 0 then give
+message that employee is not working else Working as Employee.
+Create main class create object of Employee provide name, gender and
+employee id as 0. Now create other object provide name, gender and
+employee id as any id and call work method from both objects. Now
+call display method and see the output.
+
+
+interface
+
+8. Create interface named Printable that have print() method as no
+return type. create another interface named Showable that have
+show() method as no return type. Create class called InterfaceEx that
+implements both interface. Override Method print() and give message
+"Hello". also override method show() and give message "Welcome".
+now create main class create object of InterfaceEx class and call both
+method.
+
+9. Write a Java Program to define an interface with one constant value
+discount and three methods getData(), process() and putData().
+Implement this interface in a class. User should enter product name &
+price display total amount after discount.(Discount : 10%)
+10. Write a program to create interface A in this interface we have two
+method meth1 and meth2. now create another interface called B that
+extends A that have meth3() Implements this interface in another class
+named MyClass. override all method with appropriate message. create
+main class IFExtend create object of MyClass and call all methods.
+
+11. Create a class Number that have x and y data member as int. create
+interface Arithmetic that have add and sub method with two integer
+arguments and int as return data type. Now create class UserInterface
+that extends Number class and implements Arithmetic interface
+override methods return addition in add and subtraction in sub
+method. in main method create obj of UserInterface and pass two
+integer arguments while calling methods.
