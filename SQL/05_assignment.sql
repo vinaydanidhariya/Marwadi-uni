@@ -1,6 +1,6 @@
--- set lines 256
--- set trimout on
--- set tab off
+    set lines 256
+    set trimout on
+    set tab off
 -- FOR LULL VIEW
 
 
