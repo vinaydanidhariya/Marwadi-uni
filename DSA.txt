@@ -1,0 +1,38 @@
+learn DSA 
+
+string 
+
+
+switch case 
+
+switch (key){
+        case 1:
+        print('monday')
+        
+        case 2:
+        print('tuesday')
+        
+        case 3:
+        print('wendsday')
+        
+        case 4:
+        print('thursday')
+        
+        case 5:
+        print('friday')
+}
+
+
+
+
+array 
+    -collection of similar type of data variable 
+    -in memory in continugues maner
+    
+    int arr = {1,2,3,4};
+
+
+
+
+
+
