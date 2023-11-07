@@ -11,7 +11,7 @@ Sequence baki che
 -- should have (@ and dot) sign in address, designation of employee can be “manager”, “clerk”,
 -- “leader”, “analyst”, “designer”, “coder”, “tester”.
 CREATE TABLE DEPARTMENT (
-    dept_no VARCHAR2(4) PRIMARY KEY,
+    dept_no NUMBER(2) PRIMARY KEY,
     dept_name VARCHAR2(25) UNIQUE,
     location VARCHAR2(50)
 );
@@ -23,7 +23,7 @@ CREATE TABLE EMPLOYEE (
         birth_date <= ADD_MONTHS(TO_DATE('23-10-2023', 'DD-MM-YYYY'), -216)
     ),
     gender VARCHAR2(10),
-    dept_no VARCHAR2(4) CONSTRAINTS fk_dept REFERENCES DEPARTMENT(dept_no),
+    dept_no NUMBER(2) CONSTRAINTS fk_dept REFERENCES DEPARTMENT(dept_no),
     address VARCHAR2(20),
     designation VARCHAR2(15) CONSTRAINTS chk_designation CHECK (
         designation IN (
@@ -58,19 +58,19 @@ ADD
     CONSTRAINT check_email CHECK (gender IN ('MALE', 'FEMALE'));
 
 -- 5. Insert proper data (at least 5 appropriate records) in all the tables.
-INSERT INTO DEPARTMENT VALUES('D1','CIVIL','JAIPUR');
-INSERT INTO DEPARTMENT VALUES('D2','IT','DELHI');
-INSERT INTO DEPARTMENT VALUES('D3','ENGINEERING','MUMBAI');
-INSERT INTO DEPARTMENT VALUES('D4','MANAGEMENT','AHMADABAD');
+INSERT INTO DEPARTMENT VALUES('1','CIVIL','JAIPUR');
+INSERT INTO DEPARTMENT VALUES('2','IT','DELHI');
+INSERT INTO DEPARTMENT VALUES('3','ENGINEERING','MUMBAI');
+INSERT INTO DEPARTMENT VALUES('4','MANAGEMENT','AHMADABAD');
 INSERT INTO DEPARTMENT VALUES('D5','HR','RAJKOT');
 
-INSERT INTO EMPLOYEE VALUES('E1','Vinay','07-aug-2003','MALE','D2','Ring Road','CODER',3000,5,'vinay@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E2','Rahul','08-nov-2003','MALE','D4','Ram Park','MANAGER',50000,7,'rahul@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E3','Dhruv','09-apr-2003','MALE','D2','Jamnagar Road','TESTER',30000,2,'dhruv@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E6','Janvi','07-jan-2003','FEMALE','D2','SG Road','DESIGNER',40000,0.5,'janvi@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E7','Shivani','08-feb-2003','FEMALE','D2','Rail Nager Road','ANALYST',90000,3,'shivani@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E8','Aditi','08-mar-2003','FEMALE','D4','Swati Park','LEADER',70000,3,'aditi@gmail.com');
-INSERT INTO EMPLOYEE VALUES('E9','Jay','08-feb-2003','MALE','D4','Satyam Park','CLERK',60000,3,'jay@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E1','Vinay','07-aug-2003','MALE','2','Ring Road','CODER',3000,5,'vinay@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E2','Rahul','08-nov-2003','MALE','4','Ram Park','MANAGER',50000,7,'rahul@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E3','Dhruv','09-apr-2003','MALE','2','Jamnagar Road','TESTER',30000,2,'dhruv@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E6','Janvi','07-jan-2003','FEMALE','2','SG Road','DESIGNER',40000,0.5,'janvi@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E7','Shivani','08-feb-2003','FEMALE','2','Rail Nager Road','ANALYST',90000,3,'shivani@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E8','Aditi','08-mar-2003','FEMALE','4','Swati Park','LEADER',70000,3,'aditi@gmail.com');
+INSERT INTO EMPLOYEE VALUES('E9','Jay','08-feb-2003','MALE','4','Satyam Park','CLERK',60000,3,'jay@gmail.com');
 
 -- 6. Describe the structure of table created
 desc Employee;
@@ -81,7 +81,7 @@ desc Employee;
 --  EMP_NAME                                           VARCHAR2(50)
 --  BIRTH_DATE                                         DATE
 --  GENDER                                             VARCHAR2(10)
---  DEPT_NO                                            VARCHAR2(4)
+--  DEPT_NO                                            NUMBER(2)
 --  ADDRESS                                            VARCHAR2(255)
 --  DESIGNATION                                        VARCHAR2(15)
 --  SALARY                                             NUMBER(10,2)
@@ -91,7 +91,7 @@ desc Employee;
 desc Department;
 --  Name                                      Null?    Type
 --  ----------------------------------------- -------- ----------------------------
---  DEPT_NO                                   NOT NULL VARCHAR2(4)
+--  DEPT_NO                                   NOT NULL NUMBER(2)
 --  DEPT_NAME                                          VARCHAR2(25)
 --  LOCATION                                           VARCHAR2(255)
 
@@ -99,24 +99,24 @@ desc Department;
 SELECT * FROM Department ORDER BY dept_name ASC;
 -- DEPT DEPT_NAME                 LOCATION
 -- ---- ------------------------- ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- D1   CIVIL                     JAIPUR
--- D3   ENGINEERING               MUMBAI
--- D5   HR                        RAJKOT
--- D2   IT                        DELHI
--- D4   MANAGEMENT                AHMADABAD
+-- 1   CIVIL                     JAIPUR
+-- 3   ENGINEERING               MUMBAI
+-- 5   HR                        RAJKOT
+-- 2   IT                        DELHI
+-- 4   MANAGEMENT                AHMADABAD
 
 
 SELECT * FROM Employee ORDER BY emp_name ASC;
 
 -- EMP_ EMP_NAME                                           BIRTH_DAT GENDER     DEPT ADDRESS
 -- ---- -------------------------------------------------- --------- ---------- ---- ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
--- E3   Dhruv                                              09-APR-03 MALE       D2   Jamnagar Road
--- E6   Janvi                                              07-JAN-03 FEMALE     D2   SG Road
--- E9   Jay                                                08-FEB-03 MALE       D4   Satyam Park
--- E2   Rahul                                              08-NOV-03 MALE       D4   Ram Park
--- E7   Shivani                                            08-FEB-03 FEMALE     D2   Rail Nager Road
--- E1   Vinay                                              07-AUG-03 MALE       D2   Ring Road
--- E8   aditi                                              08-MAR-03 FEMALE     D4   Swati Park
+-- E3   Dhruv                                              09-APR-03 MALE       2   Jamnagar Road
+-- E6   Janvi                                              07-JAN-03 FEMALE     2   SG Road
+-- E9   Jay                                                08-FEB-03 MALE       4   Satyam Park
+-- E2   Rahul                                              08-NOV-03 MALE       4   Ram Park
+-- E7   Shivani                                            08-FEB-03 FEMALE     2   Rail Nager Road
+-- E1   Vinay                                              07-AUG-03 MALE       2   Ring Road
+-- E8   aditi                                              08-MAR-03 FEMALE     4   Swati Park
 
 -- 7 rows selected.
 
@@ -133,9 +133,9 @@ SELECT * FROM Employee WHERE gender='FEMALE';
 
 -- EMP_ EMP_NAME                                           BIRTH_DAT GENDER     DEPT ADDRESS
 -- ---- -------------------------------------------------- --------- ---------- ---- ------------------
--- E6   Janvi                                              07-JAN-03 FEMALE     D2   SG Road
--- E7   Shivani                                            08-FEB-03 FEMALE     D2   Rail Nager Road
--- E8   aditi                                              08-MAR-03 FEMALE     D4   Swati Park
+-- E6   Janvi                                              07-JAN-03 FEMALE     2   SG Road
+-- E7   Shivani                                            08-FEB-03 FEMALE     2   Rail Nager Road
+-- E8   aditi                                              08-MAR-03 FEMALE     4   Swati Park
 
 -- 10. Display department-wise employee Names.
 SELECT
@@ -251,7 +251,7 @@ WHERE E.experience > 5;
 -- Rahul                                              MANAGEMENT
 
 -- 21. Crete Sequence to generate department ID
-CREATE SEQUENCE dept_id START WITH 6 INCREMENT BY 1 minimum 1 MAXIMUM 999;
+CREATE SEQUENCE dept_id START WITH 5 INCREMENT BY 1 MINIMUM 1 MAXIMUM 999;
 
 -- 22. List department having no employees
 -- DEPT_NAME
