@@ -137,6 +137,7 @@ public class p1 {
         String someString = sc.nextLine();
         int vowelCount = 0;
         int constantCount = 0;
+        int spaceCount = 0;
         for (int i = 0; i < someString.length(); i++) {
             if (someString.charAt(i) == 'A'
                     || someString.charAt(i) == 'a'
@@ -149,15 +150,16 @@ public class p1 {
                     || someString.charAt(i) == 'U'
                     || someString.charAt(i) == 'u') {
                 vowelCount++;
-            } else if (someString.charAt(i) == " ") {
-                
-            }
-            else{
+
+            } else {
+                if (someString.charAt(i) == ' ') {
+                    spaceCount++;
+                }
                 constantCount++;
             }
         }
         System.out.println("NUMBER OF VOWELS : " + vowelCount);
-        System.out.println("NUMBER OF CONSTANT : " + constantCount);
+        System.out.println("NUMBER OF CONSTANT : " + (constantCount - spaceCount));
     }
 
     public static void main(String[] args) {
