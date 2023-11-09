@@ -1,12 +1,11 @@
-// (1) Write a java program to enter your full name and print your initial.
 
 import java.util.Scanner;
 
 /**
  * p1
  */
-public class p1 {
-
+public class StringExercise {
+    // (1) Write a java program to enter your full name and print your initial.
     public void splitName() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Full name :-");
@@ -15,10 +14,10 @@ public class p1 {
         String[] newName = name.split(" ");
         System.out.println(newName[0]);
     }
+
     // (2) Write a java program to enter two names from keyboard and check whether
     // both are equal or
     // not ?
-
     public void checkSameString() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter Two Word :-");
