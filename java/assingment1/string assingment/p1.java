@@ -55,13 +55,17 @@ public class p1 {
     // Output : HHii
     public void doubleChar() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter word to check palindrome or not :-");
+        System.out.println("Enter word to Double string :-");
         String word = sc.nextLine();
+        StringBuilder result = new StringBuilder();
+
         for (int i = 0; i < word.length(); i++) {
             for (int j = 0; j < 2; j++) {
-                System.out.print(word.charAt(i));
+                result.append(word.charAt(i));
             }
         }
+
+        System.out.println(result);
     }
 
     // (5) Write a java program to count given character in given string
@@ -76,7 +80,7 @@ public class p1 {
         System.out.println("Enter string");
         String someString = sc.nextLine();
         System.out.println("Enter find char in string");
-        char someChar = sc.nextLine().charAt(0);
+        char someChar = sc.next().charAt(0);
         int charCount = 0;
         for (int i = 0; i < someString.length(); i++) {
             if (someString.charAt(i) == someChar) {
@@ -135,51 +139,74 @@ public class p1 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter string");
         String someString = sc.nextLine();
-        int vowelCount = 0;
-        int constantCount = 0;
-        int spaceCount = 0;
-        for (int i = 0; i < someString.length(); i++) {
-            if (someString.charAt(i) == 'A'
-                    || someString.charAt(i) == 'a'
-                    || someString.charAt(i) == 'E'
-                    || someString.charAt(i) == 'e'
-                    || someString.charAt(i) == 'I'
-                    || someString.charAt(i) == 'i'
-                    || someString.charAt(i) == 'O'
-                    || someString.charAt(i) == 'o'
-                    || someString.charAt(i) == 'U'
-                    || someString.charAt(i) == 'u') {
-                vowelCount++;
+        someString = someString.toLowerCase(); // Convert the input to lowercase for case-insensitive counting
 
-            } else {
-                if (someString.charAt(i) == ' ') {
-                    spaceCount++;
+        int vowelCount = 0;
+        int consonantCount = 0;
+        int spaceCount = 0;
+
+        for (int i = 0; i < someString.length(); i++) {
+            char ch = someString.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') { // Check if it's an alphabetic character
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowelCount++;
+                } else {
+                    consonantCount++;
                 }
-                constantCount++;
+            } else if (ch == ' ') {
+                spaceCount++;
             }
         }
-        System.out.println("NUMBER OF VOWELS : " + vowelCount);
-        System.out.println("NUMBER OF CONSTANT : " + (constantCount - spaceCount));
+        System.out.println("NUMBER OF VOWELS: " + vowelCount);
+        System.out.println("NUMBER OF CONSONANTS: " + consonantCount);
+        System.out.println("NUMBER OF SPACES: " + spaceCount);
+    }
+
+    // (9) Write a java program to enter a string, character to replace and
+    // replacement character. Output
+    // will be new string.
+    // Input : Hello ! How are you ?
+    // Character to replace : H
+    // Replacement Character : P
+    // Output : Pello ! Pow are you ?
+    void replaceString() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        String someString = sc.nextLine();
+        System.out.println("Enter old character");
+        char oldChar = sc.next().charAt(0);
+        System.out.println("Enter new character");
+        char replaceChar = sc.next().charAt(0);
+        String newString = someString.replace(oldChar, replaceChar);
+        System.out.println(newString);
+    }
+
+    // (10)Write a java program to count the digits in given string and also give
+    // sum of digits. If no digits
+    // available in string print 0.
+    // Input : Hello123World
+    // Output : No. of digits : 3
+    // Sum of digits : 6
+    // Input : HelloWorld
+    // Output : 0
+    void sumOfDigit() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter string");
+        String someString = sc.nextLine();
+        int sum = 0;
+        for (int i = 0; i < someString.length(); i++) {
+            char ch = someString.charAt(i);
+            if (Character.isDigit(ch)) { // Check if it's a digit
+                int digitValue = Character.getNumericValue(ch);
+                sum += digitValue;
+            }
+        }
+        System.out.println("Sum of digits: " + sum);
     }
 
     public static void main(String[] args) {
         p1 p = new p1();
-        p.countVowel();
+        p.sumOfDigit();
     }
 }
-
-// (9) Write a java program to enter a string, character to replace and
-// replacement character. Output
-// will be new string.
-// Input : Hello ! How are you ?
-// Character to replace : H
-// Replacement Character : P
-// Output : Pello ! Pow are you ?
-// (10)Write a java program to count the digits in given string and also give
-// sum of digits. If no digits
-// available in string print 0.
-// Input : Hello123World
-// Output : No. of digits : 3
-// Sum of digits : 6
-// Input : HelloWorld
-// Output : 0
