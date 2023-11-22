@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-class C_simple_interest {
+class p3 {
     public static void main(String[] args) {
         Float simpleInterest;
         Float amount;

@@ -1,6 +1,7 @@
+//9 Write a Java Program to enter 10 Nos. and find Maximum out of it without using array.
 import java.util.Scanner;
 
-public class E_find_max_10_without_array {
+public class p9 {
     public static void main(String[] args) {
         float num, max = 0, n = 10;
         Scanner sc = new Scanner(System.in);

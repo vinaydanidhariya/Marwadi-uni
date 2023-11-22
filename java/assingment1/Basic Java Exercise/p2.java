@@ -1,6 +1,7 @@
+//(2) Write a Java Program to enter two nos. and perform all 5 mathematical operations
 import java.util.*;
 
-public class B_methematic_opration {
+public class p2 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter First Number :- ");

@@ -1,9 +1,10 @@
+// Write a Java Program to display your biodata on the screen
 import java.util.Scanner;
 
 /**
  * bio_data
  */
-public class A_bio_data {
+public class p1 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
