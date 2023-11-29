@@ -97,9 +97,9 @@ public class StringExercise {
     // output : axbycz
     void combiningString() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("First Enter string");
+        System.out.println("Enter First string");
         String firstString = sc.nextLine();
-        System.out.println("Second Enter string");
+        System.out.println("Enter Second string");
         String secondString = sc.nextLine();
         String newString = "";
         if (firstString.length() == secondString.length()) {
@@ -139,26 +139,31 @@ public class StringExercise {
         System.out.println("Enter string");
         String someString = sc.nextLine();
         someString = someString.toLowerCase(); // Convert the input to lowercase for case-insensitive counting
-
+    
         int vowelCount = 0;
         int consonantCount = 0;
         int spaceCount = 0;
-
+    
         for (int i = 0; i < someString.length(); i++) {
             char ch = someString.charAt(i);
-
+    
             if (ch >= 'a' && ch <= 'z') { // Check if it's an alphabetic character
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                     vowelCount++;
-                } else {
+                } else {    
                     consonantCount++;
                 }
             } else if (ch == ' ') {
                 spaceCount++;
             }
         }
-        System.out.println("NUMBER OF VOWELS: " + vowelCount);
-        System.out.println("NUMBER OF CONSONANTS: " + consonantCount);
+    
+        int totalAlphabets = vowelCount + consonantCount;
+        double vowelPercentage = (double) vowelCount / totalAlphabets * 100;
+        double consonantPercentage = (double) consonantCount / totalAlphabets * 100;
+    
+        System.out.println("NUMBER OF VOWELS: " + vowelCount + ", PERCENTAGE: " + vowelPercentage + "%");
+        System.out.println("NUMBER OF CONSONANTS: " + consonantCount + ", PERCENTAGE: " + consonantPercentage + "%");
         System.out.println("NUMBER OF SPACES: " + spaceCount);
     }
 
@@ -205,7 +210,8 @@ public class StringExercise {
     }
 
     public static void main(String[] args) {
-        p1 p = new p1();
-        p.sumOfDigit();
+        StringExercise p = new StringExercise();
+        p.countVowel();
+
     }
 }

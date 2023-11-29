@@ -39,9 +39,9 @@ public class p16 {
     // 12345
     void p3() {
         int n = 5;
-        for (int i = 0; i < 5; i++) {
-            for (int j = 5; j > i; j--) {
-                System.out.print(i);
+        for (int i = 5; i > 0; i--) {
+            for (int j = i; j <= 5; j++) {
+                System.out.print(j);
             }
             System.out.println();
         }
@@ -162,17 +162,17 @@ public class p16 {
     }
 
     // 1
-    // 10
-    // 101
+    // 01
+    // 010
     // 1010
     // 10101
-    // 101010
     void p11() {
         int n = 5;
+        int k = 1;
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
-                // System.out.print(j);
-                if (j % 2 == 0) {
+                k++;
+                if (k % 2 == 0) {
                     System.out.print(1);
 
                 } else {
@@ -267,7 +267,7 @@ public class p16 {
     }
 
     public static void main(String[] args) {
-        P_Piramid P = new P_Piramid();
+        p16 P = new p16();
         System.out.println("-----------------1-----------------");
         P.p1();
         System.out.println("-----------------2-----------------");

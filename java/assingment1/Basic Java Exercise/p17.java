@@ -1,10 +1,19 @@
 // (17) Write a Java Program to enter 10 nos. and sort them in ascending order
+
+import java.util.Scanner;
+
 /**
 * p18
 */
 public class p17 {
     public static void main(String[] args) {
-        int[] arr = { 5, 4, 3, 2, 1, 6, 7, 8, 9, 10 };
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter 10 numbers: ");
+        int[] arr = new int[10];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i]=sc.nextInt();
+        }
+        sc.close();
         int temp;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 1; j < (arr.length - i); j++) {
