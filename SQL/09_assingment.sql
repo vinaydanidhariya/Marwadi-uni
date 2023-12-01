@@ -10,6 +10,7 @@ DROP TABLE Sup3;
 
 CREATE TABLE EJob (
    job_id VARCHAR2(15),
+   dpt_no NUMBER(2),
    job_title VARCHAR2(30),
    min_sal NUMBER(7, 2),
    max_sal NUMBER(7, 2)
@@ -25,7 +26,7 @@ CREATE TABLE Employee (
    emp_name VARCHAR2(30),
    emp_sal NUMBER(8, 2),
    emp_comm NUMBER(6, 1),
-   dept_no NUMBER(2) CONSTRAINTS FK_DEPT REFERENCES department(dpt_no)
+   dpt_no NUMBER(2) CONSTRAINTS FK_DEPT REFERENCES department(dpt_no)
 );
 
 CREATE TABLE Deposit (
@@ -42,20 +43,20 @@ INSERT INTO department VALUES (20, 'MANAGEMENT');
 INSERT INTO department VALUES (25, 'MARKETING');
 INSERT INTO department VALUES (30, 'ACCOUNTING');
 
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (101, 'Smith', 800, NULL, 20);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (102, 'Snehal', 1600, 300, 25);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (103, 'Adama', 1100, 0, 20);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (104, 'Aman', 3000, NULL, 15);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (105, 'Anita', 5000, 50000, 10);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (106, 'Sneha', 2450, 24500, 10);
-INSERT INTO Employee (emp_no, emp_name, emp_sal, emp_comm, dept_no) VALUES (107, 'Anamika', 2975, NULL, 30);
+INSERT INTO Employee  VALUES (101, 'Smith', 800, NULL, 20);
+INSERT INTO Employee  VALUES (102, 'Snehal', 1600, 300, 25);
+INSERT INTO Employee  VALUES (103, 'Adama', 1100, 0, 20);
+INSERT INTO Employee  VALUES (104, 'Aman', 3000, NULL, 15);
+INSERT INTO Employee  VALUES (105, 'Anita', 5000, 50000, 10);
+INSERT INTO Employee  VALUES (106, 'Sneha', 2450, 24500, 10);
+INSERT INTO Employee  VALUES (107, 'Anamika', 2975, NULL, 30);
 
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('IT_PROG', 'Programmer', 4000, 10000);
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('MK_MGR', 'Marketing manager', 9000, 15000);
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('FI_MGR', 'Finance manager', 8200, 12000);
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('FI_ACC', 'Account', 4200, 9000);
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('LEC', 'Lecturer', 6000, 17000);
-INSERT INTO EJob (job_id, job_title, min_sal, max_sal) VALUES ('COMP_OP', 'Computer Operator', 1500, 3000);
+INSERT INTO EJob VALUES ('IT_PROG',10, 'Programmer', 4000, 10000);
+INSERT INTO EJob VALUES ('MK_MGR', 25,'Marketing manager', 9000, 15000);
+INSERT INTO EJob VALUES ('FI_MGR',  30,'Finance manager', 8200, 12000);
+INSERT INTO EJob VALUES ('FI_ACC',  30,'Account', 4200, 9000);
+INSERT INTO EJob VALUES ('LEC',  15,'Lecturer', 6000, 17000);
+INSERT INTO EJob VALUES ('COMP_OP', 10,'Computer Operator', 1500, 3000);
 
 INSERT INTO Deposit (a_no, cname, bname, amount, a_date) VALUES ('101', 'Anil', 'andheri', 7000, TO_DATE('01-jan-06', 'DD-MON-YY'));
 INSERT INTO Deposit (a_no, cname, bname, amount, a_date) VALUES ('102', 'sunil', 'virar', 5000, TO_DATE('15-jul-06', 'DD-MON-YY'));
@@ -119,14 +120,14 @@ SELECT * FROM EJob WHERE min_sal > 4000;
 -- LEC             Lecturer                             6000      17000
 
 -- (4) Display the name and salary of the employee whose department no is 20.
-SELECT emp_name, emp_sal FROM Employee WHERE dept_no = 20;
+SELECT emp_name, emp_sal FROM Employee WHERE dpt_no = 20;
 -- EMP_NAME                          EMP_SAL
 -- ------------------------------ ----------
 -- Smith                                 800
 -- Adama                                1100
 -- (5) Display employee no, name, and department details of those employees whose department lies in (10,20).
-SELECT emp_no, emp_name, dept_no FROM Employee WHERE dept_no IN (10, 20);
---     EMP_NO EMP_NAME                          DEPT_NO
+SELECT emp_no, emp_name, dpt_no FROM Employee WHERE dpt_no IN (10, 20);
+--     EMP_NO EMP_NAME                          DPT_NO
 -- ---------- ------------------------------ ----------
 --        101 Smith                                  20
 --        103 Adama                                  20
@@ -183,7 +184,7 @@ DROP TABLE Sup1;
 -- Table dropped.
 
 -- (16) Update the value dept_no to 10 where the second character of emp. name is 'm'.
-UPDATE Employee SET dept_no = 10 WHERE emp_name LIKE '_m%';
+UPDATE Employee SET dpt_no = 10 WHERE emp_name LIKE '_m%';
 -- 2 rows updated.
 
 -- (17) Update the value of the employee name whose employee number is 103.
@@ -213,12 +214,30 @@ SELECT INITCAP(emp_name), LENGTH(emp_name) FROM Employee WHERE emp_name LIKE 'J%
 -- Anita                                         5
 -- Anamika                                       7
 -- (20) Write a query that produces the following for each employee: <employee last name> earns <salary> monthly.
-SELECT CONCAT(emp_name, ' earns ', emp_sal, ' monthly.') AS "Salary Statement" FROM Employee;
--- baki
+SELECT emp_name || ' earns ' || emp_sal || ' monthly.' AS "Salary Statement" FROM Employee;
+-- Salary Statement
+-- --------------------------------------------------------------------------------
+-- Smith earns 800 monthly.
+-- Snehal earns 1600 monthly.
+-- Anamika earns 1100 monthly.
+-- Aman earns 3000 monthly.
+-- Anita earns 5000 monthly.
+-- Sneha earns 2450 monthly.
+-- Anamika earns 2975 monthly.
+
+-- 7 rows selected.
 
 -- (21) Display the hiredate of emp in a format that appears as Seventh of June 1994 12:00:00 AM.
-SELECT TO_CHAR(hiredate, 'DD "of" MONTH YYYY HH:MI:SS AM') FROM Employee;
--- baki
+SELECT TO_CHAR(a_date, 'DDTH MONTH YYYY HH:MI:SS AM') as hiredate FROM deposit;
+-- HIREDATE
+-- ----------------------------------------------------------
+-- 01ST JANUARY   2006 12:00:00 AM
+-- 15TH JULY      2006 12:00:00 AM
+-- 12TH MARCH     2006 12:00:00 AM
+-- 17TH SEPTEMBER 2006 12:00:00 AM
+-- 19TH NOVEMBER  2006 12:00:00 AM
+-- 21ST DECEMBER  2006 12:00:00 AM
+-- 6 rows selected.
 
 -- (22) Write a query to calculate the annual compensation of all employees (sal+comm).
 SELECT emp_name, emp_sal + emp_comm AS "Annual Compensation" FROM Employee;
@@ -235,7 +254,7 @@ SELECT emp_name, emp_sal + emp_comm AS "Annual Compensation" FROM Employee;
 
 -- 7 rows selected.
 -- (23) Write a query to display the last name, department number, and department name for all employees.
-SELECT e.emp_name, e.dept_no, d.d_name FROM Employee e, Department d WHERE e.dept_no = d.dpt_no;
+SELECT e.emp_name, e.dpt_no, d.d_name FROM Employee e, Department d WHERE e.dpt_no = d.dpt_no;
 -- EMP_NAME                          DEPT_NO D_NAME
 -- ------------------------------ ---------- ----------
 -- Smith                                  10 IT
@@ -272,14 +291,28 @@ SELECT emp_no, emp_name FROM Employee WHERE emp_sal > (SELECT AVG(emp_sal) FROM 
 --        107 Anamika
 
 -- (28) Display the department number, name, and Ejob for every employee in the Accounting department.
-SELECT e.dept_no, d.d_name, j.job_title FROM Employee e, Department d, EJob j WHERE e.dept_no = d.dpt_no AND e.job_id = j.job_id AND d.d_name = 'Accounting';
--- baki
+SELECT e.dpt_no,e.emp_name, d.d_name, j.job_title 
+FROM Employee e 
+INNER JOIN Department d ON e.dpt_no = d.dpt_no 
+INNER JOIN Ejob j ON e.dpt_no = j.dpt_no 
+WHERE d.d_name = 'ACCOUNTING';
 
+--     DPT_NO EMP_NAME                       D_NAME     JOB_TITLE
+-- ---------- ------------------------------ ---------- ------------------------------
+--         30 Anamika                        ACCOUNTING Account
+--         30 Anamika                        ACCOUNTING Finance manager
+
+
+SELECT e.dpt_no, d.d_name,j.job_title FROM Employee e INNER JOIN DEPARTMENT d , Ejob jON e.dpt_no = d.dpt_no AND e.dpt_no = j.dpt_no AND d.d_name='ACCOUNTING';
+--     DPT_NO D_NAME
+-- ---------- ----------
+--         30 ACCOUNTING
 -- (29) List the name of the branch having the highest number of depositors.
 SELECT bname FROM Deposit GROUP BY bname HAVING COUNT(*) = (SELECT MAX(COUNT(*)) FROM Deposit GROUP BY bname);
 -- BNAME
 -- ----------
 -- andheri
+
 -- (30) Give 10% interest to all depositors.
 UPDATE Deposit SET amount = amount * 1.1;
 -- 6 rows updated.
