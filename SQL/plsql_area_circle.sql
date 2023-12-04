@@ -1,0 +1,21 @@
+-- 1 Write a program to calculate the AREA of a circle and store that value in the table.
+-- C_AREA (RADIUS NUMBER (5), AREA NUMBER (14,2)).
+SET SERVEROUTPUT ON
+
+ACCEPT R1 PROMPT "ENTER VALUE OF RADIUS: "
+DECLARE 
+    PI CONSTANT NUMBER(9,2) :=3.14;
+    R C_AREA.RADIUS%TYPE;
+    AREA C_AREA.AREA%TYPE;
+BEGIN
+    R:=&R1;
+    AREA:=PI*(R*R);
+    DBMS_OUTPUT.PUT_LINE('value of area is '||AREA);
+    INSERT INTO C_AREA VALUES(R,AREA);
+
+END; 
+/
+SELECT * FROM C_AREA;
+
+
+-- CREATE TABLE C_AREA (RADIUS NUMBER (5), AREA NUMBER (14,2)); 
