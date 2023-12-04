@@ -79,14 +79,14 @@ SELECT * FROM Employee;
 
 -- 7 rows selected.
 SELECT * FROM EJob;
--- JOB_ID          JOB_TITLE                         MIN_SAL    MAX_SAL
--- --------------- ------------------------------ ---------- ----------
--- IT_PROG         Programmer                           4000      10000
--- MK_MGR          Marketing manager                    9000      15000
--- FI_MGR          Finance manager                      8200      12000
--- FI_ACC          Account                              4200       9000
--- LEC             Lecturer                             6000      17000
--- COMP_OP         Computer Operator                    1500       3000
+-- JOB_ID              DPT_NO JOB_TITLE                         MIN_SAL    MAX_SAL
+-- --------------- ---------- ------------------------------ ---------- ----------
+-- IT_PROG                 10 Programmer                           4000      10000
+-- MK_MGR                  25 Marketing manager                    9000      15000
+-- FI_MGR                  30 Finance manager                      8200      12000
+-- FI_ACC                  30 Account                              4200       9000
+-- LEC                     15 Lecturer                             6000      17000
+-- COMP_OP                 10 Computer Operator                    1500       3000
 
 -- 6 rows selected.
 SELECT * FROM Deposit;
@@ -197,7 +197,7 @@ SELECT emp_no, emp_name, emp_sal, ROUND(emp_sal * 1.15) AS "New Salary" FROM Emp
 -- ---------- ------------------------------ ---------- ----------
 --        101 Smith                                 800        920
 --        102 Snehal                               1600       1840
---        103 Anamika                              1100       1265
+--        103 Adama                                1100       1265
 --        104 Aman                                 3000       3450
 --        105 Anita                                5000       5750
 --        106 Sneha                                2450       2818
@@ -209,7 +209,7 @@ SELECT emp_no, emp_name, emp_sal, ROUND(emp_sal * 1.15) AS "New Salary" FROM Emp
 SELECT INITCAP(emp_name), LENGTH(emp_name) FROM Employee WHERE emp_name LIKE 'J%' OR emp_name LIKE 'A%' OR emp_name LIKE 'M%';
 -- INITCAP(EMP_NAME)              LENGTH(EMP_NAME)
 -- ------------------------------ ----------------
--- Anamika                                       7
+-- Adama                                         5
 -- Aman                                          4
 -- Anita                                         5
 -- Anamika                                       7
@@ -219,7 +219,7 @@ SELECT emp_name || ' earns ' || emp_sal || ' monthly.' AS "Salary Statement" FRO
 -- --------------------------------------------------------------------------------
 -- Smith earns 800 monthly.
 -- Snehal earns 1600 monthly.
--- Anamika earns 1100 monthly.
+-- Adama earns 1100 monthly.
 -- Aman earns 3000 monthly.
 -- Anita earns 5000 monthly.
 -- Sneha earns 2450 monthly.
@@ -246,21 +246,20 @@ SELECT emp_name, emp_sal + emp_comm AS "Annual Compensation" FROM Employee;
 -- ------------------------------ -------------------
 -- Smith
 -- Snehal                                        1900
--- Anamika                                       1100
+-- Adama                                         1100
 -- Aman
 -- Anita                                        55000
 -- Sneha                                        26950
--- Anamika
 
 -- 7 rows selected.
 -- (23) Write a query to display the last name, department number, and department name for all employees.
 SELECT e.emp_name, e.dpt_no, d.d_name FROM Employee e, Department d WHERE e.dpt_no = d.dpt_no;
--- EMP_NAME                          DEPT_NO D_NAME
+-- EMP_NAME                           DPT_NO D_NAME
 -- ------------------------------ ---------- ----------
--- Smith                                  10 IT
+-- Smith                                  20 MANAGEMENT
 -- Snehal                                 25 MARKETING
--- Anamika                                20 MANAGEMENT
--- Aman                                   10 IT
+-- Adama                                  20 MANAGEMENT
+-- Aman                                   15 CIVIL
 -- Anita                                  10 IT
 -- Sneha                                  10 IT
 -- Anamika                                30 ACCOUNTING
@@ -302,11 +301,6 @@ WHERE d.d_name = 'ACCOUNTING';
 --         30 Anamika                        ACCOUNTING Account
 --         30 Anamika                        ACCOUNTING Finance manager
 
-
-SELECT e.dpt_no, d.d_name,j.job_title FROM Employee e INNER JOIN DEPARTMENT d , Ejob jON e.dpt_no = d.dpt_no AND e.dpt_no = j.dpt_no AND d.d_name='ACCOUNTING';
---     DPT_NO D_NAME
--- ---------- ----------
---         30 ACCOUNTING
 -- (29) List the name of the branch having the highest number of depositors.
 SELECT bname FROM Deposit GROUP BY bname HAVING COUNT(*) = (SELECT MAX(COUNT(*)) FROM Deposit GROUP BY bname);
 -- BNAME
