@@ -21,9 +21,6 @@ EXEC DBMS_OUTPUT.ENABLE;
 -- END;
 /
 
--- 3 Write a program of mark sheet with displays the SEAT_NO, NAME OF STUDENT, marks 
--- of 5 subjects, total of 5 subjects and percentage, also display the class of student
--- based on the value of percentage.
 
 
 -- Write a program that accepts a value from the user then print that value with and 
