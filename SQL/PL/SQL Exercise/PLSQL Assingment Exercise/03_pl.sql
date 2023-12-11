@@ -1,16 +1,18 @@
 -- Write a function that calculates the binary value for the given number.
 
-DECLARE
-    N NUMBER(4);
-    BINARY NUMBER(4);
-    REMAINDER NUMBER(4);
+CREATE OR REPLACE FUNCTION dec2bin (N in number) RETURN varchar2 IS
+  binval varchar2(64);
+  N2     number := N;
 BEGIN
-    N:=&N;
-    WHILE N>0 LOOP
-        REMAINDER:=MOD(N,2);
-        BINARY:=BINARY*10+REMAINDER;
-        N:=N/2;
-    END LOOP;
-    DBMS_OUTPUT.PUT_LINE('BINARY VALUE IS '||BINARY);
-END;
+  while ( N2 > 0 ) loop
+     binval := mod(N2, 2) || binval;
+     N2 := trunc( N2 / 2 );
+  end loop;
+  return binval;
+END dec2bin;
 /
+
+SQL> SELECT dec2bin(22) FROM dual;
+DEC2BIN(22)
+----------------
+10110
