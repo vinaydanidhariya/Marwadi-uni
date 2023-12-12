@@ -21,6 +21,9 @@ class Circle extends BasicShape {
 
     void display() {
         System.out.println("circle Called class");
+    }
+
+    public void Area() {
     };
 }
 
