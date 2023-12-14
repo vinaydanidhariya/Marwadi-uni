@@ -4,15 +4,17 @@
 // variable PHI. 
 // The class should also contain abstract method like Area. A
 // class named Rectangle which inherits Shape class. Also add information
-// like length and breadth. The class should also contain parameterized
+// like length and breadth. 
+// The class should also contain parameterized
 // constructor named Rectangle (length, Breadth). Also implement
-// method Area() and define it in the class.A class named Circle which
+// method Area() and define it in the class.
+// A class named Circle which
 // inherits Shape class. Also add information like radius. The class should
 // also contain parameterized constructor named Circle (radius). Also
 // implement method Area() and define it in the class. Now create main
 // class outside package and do appropriate task.
 // (Note : In all get Method data should be asked by user input)
-//
+
 import MyShapePackage.Rectangle;
 import MyShapePackage.Circle;
 
