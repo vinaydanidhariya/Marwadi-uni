@@ -17,6 +17,6 @@ echo "<br>";
 list(,, $c) = $info;
 echo " I need coffee with $c ! \n";
 echo "<br>";
-$yes = array(":this,"is",)
+$yes = array(":this is",)
 ?>
 </pre>

@@ -1,0 +1,15 @@
+-- Write a function that calculates the binary value for the given number.
+CREATE
+OR REPLACE PROCEDURE PBIN(NUM IN NUMBER,BINVAL OUT NUMBER) 
+IS
+BEGIN 
+    WHILE (NUM > 0) LOOP BINVAL := MOD(NUM, 2) || BINVAL;
+
+    NUM := TRUNC(NUM / 2);
+    END LOOP;
+END; 
+/
+
+SET SERVEROUT OFF
+SET FEEDBACK ON 
+SET VERIFY ON
