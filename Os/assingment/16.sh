@@ -127,3 +127,49 @@ done
 # shubham
 # Both Strings are Same...  
 # Do u want to continue? [y/n]y
+# What do you want to perform?
+# 1. COMAPRE TWO STRINGS
+# 2. JOIN TWO STRINGS
+# 3. FIND THE LENGTH OF A GIVEN STRING
+# 4. OCCURRENCE OF A CHARACTER AND WORDS
+# 5. REVERSE THE STRING
+#2
+# Enter First String: shubham
+# Enter Second String: sharma
+# After joining shubham and sharma :
+# shubhamsharma
+# Do u want to continue? [y/n]y
+# What do you want to perform?
+# 1. COMAPRE TWO STRINGS
+# 2. JOIN TWO STRINGS
+# 3. FIND THE LENGTH OF A GIVEN STRING
+# 4. OCCURRENCE OF A CHARACTER AND WORDS
+# 5. REVERSE THE STRING
+# 3
+# Enter String: shubham
+# Length Of a Given String Is: 7
+# Do u want to continue? [y/n]y
+# What do you want to perform?
+# 1. COMAPRE TWO STRINGS
+# 2. JOIN TWO STRINGS
+# 3. FIND THE LENGTH OF A GIVEN STRING
+# 4. OCCURRENCE OF A CHARACTER AND WORDS
+# 5. REVERSE THE STRING
+# 4
+# Enter a String: shubham sharma
+# Enter a Character Which You Want To Count: a
+# Enter a Word Which You Want To Count: shubham
+# No. Of Occurrence of Character a Is: 3
+# No. Of Occurrence of Word shubham Is: 1
+
+# Do u want to continue? [y/n]y
+# What do you want to perform?
+# 1. COMAPRE TWO STRINGS
+# 2. JOIN TWO STRINGS
+# 3. FIND THE LENGTH OF A GIVEN STRING
+# 4. OCCURRENCE OF A CHARACTER AND WORDS
+# 5. REVERSE THE STRING
+# 5
+# Enter a String: shubham
+# The String Is Reversed...
+# The Reverse String Is: mahbuhs
