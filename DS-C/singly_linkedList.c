@@ -243,7 +243,8 @@ void delete_beg() {
   // Delete the first node and update the start pointer
   ptr = start;
   start = start->next;
-  free(ptr);
+  printf("%d NODE DELETE SUCCESSFULLY",ptr->data);
+  free(ptr);               // Free the memory allocated to the deleted node
 }
 
 // Function to delete a node from the end of the linked list
