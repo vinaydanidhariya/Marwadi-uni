@@ -8,3 +8,6 @@ BEGIN
     INSERT INTO NEWEMP VALUES(:old.EMPNO, :old.ENAME,:old.JOB,:old.MGR, :old.HIREDATE,:old.SAL,:old.COMM,:old.DEPTNO);
 END;
 /
+
+
+--Trigger created. 
