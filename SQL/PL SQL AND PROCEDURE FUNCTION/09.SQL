@@ -1,6 +1,6 @@
 -- 9 Write a function that returns the square of the given number. Execute this function
 -- using separate PL/SQL block and also without using PL/SQL block on command line.
-CREATE FUNCTION CUBE1(NUM NUMBER)
+CREATE FUNCTION SQUARE(NUM NUMBER)
 RETURN NUMBER
 AS 
     SQ NUMBER;
@@ -14,7 +14,7 @@ DECLARE
     NUM NUMBER;
 BEGIN
     NUM := &NUM; 
-    NUM := CUBE1(NUM);
+    NUM := SQUARE(NUM);
     DBMS_OUTPUT.PUT_LINE(NUM);
 END;
 /
