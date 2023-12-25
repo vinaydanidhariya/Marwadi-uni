@@ -14,23 +14,13 @@ EXCEPTION
 END;
 / 
 
+DECLARE
+    ename VARCHAR2(20); 
+BEGIN
+    exist_emp(7934,ename);
+    dbms_output.put_line('EMPLOYEE NAME IS '||ename);
+END;
+/
 
--- SQL> @ 'C:\xampp\htdocs\Marwadi-uni\SQL\PL SQL AND PROCEDURE FUNCTION\08.sql'
-
--- Procedure created.
-
--- SQL> VAR EMPNAME VARCHAR2(200);
--- SQL> EXECUTE exist_emp(7369,:EMPNAME)
-
+-- EMPLOYEE NAME IS MILLER
 -- PL/SQL procedure successfully completed.
-
--- SQL> PRINT EMPNAME
-
--- EMPNAME
--- --------------------------------------------------------------------------------
--- SMITH
-
-
--- not found case
--- EXECUTE exist_emp(739,:EMPNAME)
--- EMPLOYEE NOT FOUND...
