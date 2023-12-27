@@ -77,7 +77,7 @@
                 $email = isset($_POST['email']) ? $_POST['email'] : '';
                 $gender = isset($_POST['gender']) ? $_POST['gender'] : '';
                 $course = isset($_POST['course']) ? $_POST['course'] : '';
-                $city = isset($_POST['city']) ? $_POST['city'] : '';
+                $city = isset($_POST['city']) ? $_POST['city'] : '';    
                 $college = isset($_POST['college']) ? $_POST['college'] : '';
 
                 echo "
