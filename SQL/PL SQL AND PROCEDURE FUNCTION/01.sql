@@ -1,4 +1,6 @@
 -- 1 Write a program to calculate the AREA of a circle and store that value in the table.
+-- area = 3.14 * r^2;
+
 CREATE TABLE C_AREA (RADIUS NUMBER (5), AREA NUMBER (14,2));
 SET SERVEROUTPUT ON;
 SET VERIFY OFF;
