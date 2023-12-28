@@ -228,7 +228,7 @@ SELECT emp_name || ' earns ' || emp_sal || ' monthly.' AS "Salary Statement" FRO
 -- 7 rows selected.
 
 -- (21) Display the hiredate of emp in a format that appears as Seventh of June 1994 12:00:00 AM.
-SELECT TO_CHAR(a_date, 'DDTH MONTH YYYY HH:MI:SS AM') as hiredate FROM deposit;
+SELECT TO_CHAR(a_date, 'DDTHSP MONTH YYYY HH:MI:SS AM') as hiredate FROM deposit;
 -- HIREDATE
 -- ----------------------------------------------------------
 -- 01ST JANUARY   2006 12:00:00 AM
