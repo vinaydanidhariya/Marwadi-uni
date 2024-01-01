@@ -24,13 +24,13 @@ DECLARE
     F NUMBER(4);
     C NUMBER(4);
 BEGIN
-    F:=&F;
-    F := (C × 9/5) + 32;
-    DBMS_OUTPUT.PUT_LINE('TEMPERATURE IN FAHRENHEIT IS '||F);
+    C:=&C;
+    F := (C * 9/5) + 32;
+    DBMS_OUTPUT.PUT_LINE('TEMPERATURE IN FAHRENHEIT IS '|| F);
 END;
 /
 
--- Enter value for f: 65
--- old   5:     F:=&F;
--- new   5:     F:=65;
--- TEMPERATURE IN CELSIUS IS 18
+-- Enter value for c: 18
+-- old   5:     C:=&C;
+-- new   5:     C:=18;
+-- TEMPERATURE IN FAHRENHEIT IS 64
