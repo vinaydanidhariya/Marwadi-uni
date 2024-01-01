@@ -167,6 +167,8 @@ struct node *delete_list(struct node *start) {
   free(start);
   return start;
 }
+
+
 Doubly Linked List
 // DOUBLY LINKED LIST
 #include <conio.h>
