@@ -7,7 +7,6 @@ for i in range(10):
     if(i%2==0):
         if(num<i):
             num=i
-
 print(num)
 
 
