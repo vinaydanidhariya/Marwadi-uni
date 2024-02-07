@@ -79,3 +79,10 @@ simple_interest = P*R*(N/12)/100
 
 print("simple interest : ",simple_interest)
 print("All Amount with simple interest is : ",simple_interest+P)
+
+# OUTPUT
+# Enter a Price : 100
+# Enter a Rate : 20
+# Enter a Time in month : 12
+# simple interest :  20.0
+# All Amount with simple interest is :  120.0 
