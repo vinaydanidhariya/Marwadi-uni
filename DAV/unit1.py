@@ -68,15 +68,14 @@ rate = int(input("Enter the rate value: "))
 hours = int(input("Enter the hours value: "))
 if hours > 30:
      regular_pay = 30 * rate
-     overtime_pay = (hours - 30) * hours * 1.5
+     overtime_pay = (hours - 30) * (1.5* rate)
      pay = regular_pay + overtime_pay
 else:
     pay = hours * rate
 print("Pay: ", pay)
-# Enter the rate value: 10
-# Enter the hours value: 50 
-# Pay:  600.0
-
+# Enter the rate value: 100
+# Enter the hours value: 50
+# Pay:  6000.0
 
 
 
