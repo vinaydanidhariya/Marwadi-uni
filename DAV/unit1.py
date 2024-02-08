@@ -64,8 +64,8 @@ print("Fahrenheit value :- ",Fahrenheit)
 # If Enter Hours is 50 and Enter Rate is 10, then the calculated
 # payment is Pay: 550.0.
 
-rate = int(input("Enter the rate value: "))
-hours = int(input("Enter the hours value: "))
+hours = float(input("Enter the number of hours worked: "))
+rate = float(input("Enter the hourly rate: "))
 if hours > 30:
      regular_pay = 30 * rate
      overtime_pay = (hours - 30) * (1.5* rate)
