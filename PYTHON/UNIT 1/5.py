@@ -12,4 +12,16 @@ for i in lst:
             num=i
 print(num)
 
+# ENTER NUMBER : 12
+# ENTER NUMBER : 36
+# ENTER NUMBER : 45
+# ENTER NUMBER : 21
+# ENTER NUMBER : 12
+# ENTER NUMBER : 12
+# ENTER NUMBER : 132
+# ENTER NUMBER : 541
+# ENTER NUMBER : 55
+# ENTER NUMBER : 15
+# 541
+
 
