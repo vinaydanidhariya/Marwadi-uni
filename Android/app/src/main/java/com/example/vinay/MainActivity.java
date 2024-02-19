@@ -5,7 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vinay.DetailActivity;
@@ -25,36 +28,24 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        final ListView list = findViewById(R.id.listView);
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("JAVA");
+        arrayList.add("ANDROID");
+        arrayList.add("C Language");
+        arrayList.add("CPP Language");
+        arrayList.add("Go Language");
+        arrayList.add("AVN SYSTEMS");
 
-        listView = findViewById(R.id.listView);
-        // Initialize data
-        initData();
-
-        // Initialize adapter with data
-        adapter = new ArrayAdapter<>(this, R.layout.list_item, R.id.textView, dataList);
-        listView.setAdapter(adapter);
-
-        // Set item click listener
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,                   android.R.layout.simple_list_item_1, arrayList);
+        list.setAdapter(arrayAdapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // Handle item click, e.g., start a new activity with Intent
-                ListItem selectedItem = dataList.get(position);
-                Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-                intent.putExtra("selectedItem", selectedItem.getText());
-
-                startActivity(intent);
+                String clickedItem=(String) list.getItemAtPosition(position);
+                Toast.makeText(MainActivity.this,clickedItem,Toast.LENGTH_LONG).show();
             }
         });
-    }
 
-    private void initData() {
-        // Create a simple list of ListItem objects
-        dataList = new ArrayList<>();
-        dataList.add(new ListItem("Item 1"));
-        dataList.add(new ListItem("Item 5"));
-        dataList.add(new ListItem("Item 3"));
-        dataList.add(new ListItem("Item 4"));
-        dataList.add(new ListItem("Item 5"));
     }
 }
