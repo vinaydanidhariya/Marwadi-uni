@@ -7,8 +7,10 @@ def local_v():
     print('Local', message)
 
 local_v()
-
 print(message)
+#Output
+#Local Hello Dhruv
+#NameError: name 'message' is not defined
 
 # declare global variable
 message = 'Hello Vinay'
@@ -29,6 +31,10 @@ def local_v():
 
 local_v()
 
+#Output
+#Local Hello Vinay
+#Global Hello Vinay
+
 
 #nonlocal variables
 def outer():
@@ -43,6 +49,9 @@ def outer():
 
 outer()
 
+#output
+#inner: Local
+#outer: Local
 
 
 
