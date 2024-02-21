@@ -22,15 +22,6 @@ Global_v()
 print('Global', message)
 
 
-def local_v():
-
-    # local variable
-    message = 'Hello Dhruv'
-    
-    print('Local', message)
-
-local_v()
-
 #Output
 #Local Hello Vinay
 #Global Hello Vinay
