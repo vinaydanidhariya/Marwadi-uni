@@ -28,22 +28,62 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final ListView list = findViewById(R.id.listView);
+        final ListView list = findViewById(R.id.listViewMain);
         ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("JAVA");
-        arrayList.add("ANDROID");
-        arrayList.add("C Language");
-        arrayList.add("CPP Language");
-        arrayList.add("Go Language");
-        arrayList.add("AVN SYSTEMS");
+        arrayList.add("unit1");
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,                   android.R.layout.simple_list_item_1, arrayList);
+        arrayList.add("adepter");
+
+        arrayList.add("radio button");
+        arrayList.add("AutoComplete");
+        arrayList.add("6 . WEB VIEW");
+
+
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 String clickedItem=(String) list.getItemAtPosition(position);
-                Toast.makeText(MainActivity.this,clickedItem,Toast.LENGTH_LONG).show();
+
+                if(clickedItem.equals("unit1")){
+
+                    Intent i=new Intent(MainActivity.this,DetailActivity.class);
+                    startActivity(i);
+                }
+               else if(clickedItem.equals("adepter")){
+
+                    Intent i=new Intent(MainActivity.this,listViweAdpeter.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("radio button")){
+
+                    Intent i=new Intent(MainActivity.this,Redio_button_image_view.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("AutoComplete")){
+
+                    Intent i=new Intent(MainActivity.this,autoCompleteTextBox.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("Multi AutoComplete")){
+
+                    Intent i=new Intent(MainActivity.this,autoCompleteTextBox.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("6 . WEB VIEW")){
+
+                    Intent i=new Intent(MainActivity.this,WebViewEx.class);
+                    startActivity(i);
+
+                }
+
+
             }
         });
 
