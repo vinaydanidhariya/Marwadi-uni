@@ -4,9 +4,12 @@
 def display_names(name_list):
     for name in name_list:
         print(name)
-
-# Create a list of names
 names = ["Viny", "Rahul", "Dhruv", "Jay", "Vraj"]
-
-# Call the function to display all names in the list
 display_names(names)
+
+#Output:
+#Viny
+#Rahul
+#Dhruv
+#Jay
+#Vraj
