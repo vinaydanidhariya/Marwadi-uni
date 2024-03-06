@@ -7,6 +7,11 @@
     android:layout_gravity="center"
     tools:context=".TimeAndDatePicker">
 >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="-127dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -20,8 +25,8 @@
         android:text="SELECT TIME"   />
     <TimePicker
         android:id="@+id/timePicker"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
    />
 
     <TextView
@@ -45,4 +50,5 @@
         android:layout_height="wrap_content"
        />
     </LinearLayout>
+    </ScrollView>
 </LinearLayout>

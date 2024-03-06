@@ -25,16 +25,18 @@ public class TimeAndDatePicker extends AppCompatActivity {
         tp.setOnTimeChangedListener(new TimePicker.OnTimeChangedListener() {
             @Override
             public void onTimeChanged(TimePicker timePicker, int i, int i1) {
-                textView.setText("time is "+tp.getHour()+" "+tp.getMinute());
+                textView.setText("time is " + tp.getHour() + " " + tp.getMinute());
             }
         });
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             dp.setOnDateChangedListener(new DatePicker.OnDateChangedListener() {
                 @Override
                 public void onDateChanged(DatePicker datePicker, int i, int i1, int i2) {
-                    datetextView.setText("date "+(dp.getMonth()+1)+" "+ dp.getDayOfMonth());
+                    datetextView.setText("date " + (dp.getMonth() + 1) + " " + dp.getDayOfMonth());
                 }
             });
         }
+
     }
 }
