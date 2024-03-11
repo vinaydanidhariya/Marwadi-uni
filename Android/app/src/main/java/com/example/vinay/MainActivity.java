@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("radio button");
         arrayList.add("AutoComplete");
         arrayList.add("6 . WEB VIEW");
+
         arrayList.add("7.TIME PICKER AND DATE PICKER");
+        arrayList.add("8.ANIMATION");
+
 
 
 
@@ -87,6 +90,12 @@ public class MainActivity extends AppCompatActivity {
                 else if(clickedItem.equals("7.TIME PICKER AND DATE PICKER")){
 
                     Intent i=new Intent(MainActivity.this,TimeAndDatePicker.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("8.ANIMATION")){
+
+                    Intent i=new Intent(MainActivity.this,AnimationEx.class);
                     startActivity(i);
 
                 }
