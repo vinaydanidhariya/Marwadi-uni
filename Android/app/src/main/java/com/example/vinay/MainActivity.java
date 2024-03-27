@@ -39,11 +39,13 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("6 . WEB VIEW");
 
         arrayList.add("7.TIME PICKER AND DATE PICKER");
+
         arrayList.add("8.ANIMATION");
-
-
-
-
+        arrayList.add("9.Login");
+        arrayList.add("8.call Edit text");
+        arrayList.add("10.Calculator");
+        arrayList.add("11.ToggleButton");
+        arrayList.add("15.CheckBox");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
@@ -99,8 +101,36 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(i);
 
                 }
+                else if(clickedItem.equals("9.Login")){
 
+                    Intent i=new Intent(MainActivity.this,loginPage.class);
+                    startActivity(i);
 
+                }
+                else if(clickedItem.equals("8.call Edit text")){
+
+                    Intent i=new Intent(MainActivity.this,callEdittext.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("10.Calculator")){
+
+                    Intent i=new Intent(MainActivity.this,calculator.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("11.ToggleButton")){
+
+                    Intent i=new Intent(MainActivity.this,ToggleButtonEx.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("15.CheckBox")){
+
+                    Intent i=new Intent(MainActivity.this,checkBox.class);
+                    startActivity(i);
+
+                }
             }
         });
 

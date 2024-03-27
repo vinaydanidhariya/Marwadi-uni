@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Spinner;
 
 public class autoCompleteTextBox extends AppCompatActivity {
 
@@ -23,6 +24,9 @@ public class autoCompleteTextBox extends AppCompatActivity {
                 findViewById(R.id.multiAutoCompleteTextView);
         MultiTextView.setAdapter(adapter);
         MultiTextView.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
+        Spinner spinner = findViewById(R.id.planets_spinner);
+        spinner.setAdapter(adapter);
     }
 
     private static final String[] COUNTRIES = new String[] {
