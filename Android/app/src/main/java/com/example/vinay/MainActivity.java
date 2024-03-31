@@ -46,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("10.Calculator");
         arrayList.add("11.ToggleButton");
         arrayList.add("15.CheckBox");
+        arrayList.add("22.rating bar");
+        arrayList.add("25.Progress Bar");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
@@ -128,6 +130,18 @@ public class MainActivity extends AppCompatActivity {
                 else if(clickedItem.equals("15.CheckBox")){
 
                     Intent i=new Intent(MainActivity.this,checkBox.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("22.rating bar")){
+
+                    Intent i=new Intent(MainActivity.this,ex_rating_bar.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("25.Progress Bar")){
+
+                    Intent i=new Intent(MainActivity.this,prgressBar.class);
                     startActivity(i);
 
                 }

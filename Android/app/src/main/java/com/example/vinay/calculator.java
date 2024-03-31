@@ -5,81 +5,80 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class calculator extends AppCompatActivity {
 
-    private TextView resultTextView;
-    private String operand1 = "";
-    private String operand2 = "";
-    private String operator = "";
+    EditText no1 , no2;
+    Button add ,mul ,div , sub,equal;
+    TextView answer;
+    double ans = 0;  // global variable
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
 
-        resultTextView = findViewById(R.id.resultTextView);
-    }
+        // for text views
+        no1 = findViewById(R.id.first_no);
+        no2 = findViewById(R.id.second_no);
 
-    public void onDigitClicked(View view) {
-        String digit = ((Button) view).getText().toString();
-        if (operator.isEmpty()) {
-            operand1 += digit;
-            resultTextView.setText(operand1);
-        } else {
-            operand2 += digit;
-            resultTextView.setText(operand2);
-        }
-    }
+        // for button with operations
+        add = findViewById(R.id.add);
 
-    public void onOperatorClicked(View view) {
-        operator = ((Button) view).getText().toString();
-    }
+        mul = findViewById(R.id.mul);
+        div = findViewById(R.id.div);
+        sub = findViewById(R.id.sub);
 
-    public void onClearClicked(View view) {
-        operand1 = "";
-        operand2 = "";
-        operator = "";
-        resultTextView.setText("");
-    }
+        // for equal to button
+        equal = findViewById(R.id.equals);
 
-    public void onEqualsClicked(View view) {
-        if (!operand1.isEmpty() && !operand2.isEmpty() && !operator.isEmpty()) {
-            double num1 = Double.parseDouble(operand1);
-            double num2 = Double.parseDouble(operand2);
-            double result = 0.0;
-            switch (operator) {
-                case "+":
-                    result = num1 + num2;
-                    break;
-                case "-":
-                    result = num1 - num2;
-                    break;
-                case "*":
-                    result = num1 * num2;
-                    break;
-                case "/":
-                    if (num2 != 0) {
-                        result = num1 / num2;
-                    } else {
-                        resultTextView.setText("Error: Division by zero");
-                        return;
-                    }
-                    break;
-                case "%":
-                    if (num2 != 0) {
-                        result = num1 % num2;
-                    } else {
-                        resultTextView.setText("Error: Modulo by zero");
-                        return;
-                    }
-                    break;
-                default:
-                    resultTextView.setText("Error: Invalid operator");
-                    return;
+        // for answer field
+        answer = findViewById(R.id.answer);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double a = Double.parseDouble(no1.getText().toString());
+                double b = Double.parseDouble(no2.getText().toString());
+                ans = a +b;
             }
-            resultTextView.setText(String.valueOf(result));
-        }
+        });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double a = Double.parseDouble(no1.getText().toString());
+                double b = Double.parseDouble(no2.getText().toString());
+                ans = a - b;
+            }
+        });
+
+        mul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double a = Double.parseDouble(no1.getText().toString());
+                double b = Double.parseDouble(no2.getText().toString());
+                ans = a*b;
+            }
+        });
+        div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double a = Double.parseDouble(no1.getText().toString());
+                double b = Double.parseDouble(no2.getText().toString());
+                ans = a/b;
+            }
+        });
+
+        equal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ans1 = String.valueOf(ans);
+                answer.setText(ans1);
+                ans= 0;
+            }
+        });
     }
+
 }
