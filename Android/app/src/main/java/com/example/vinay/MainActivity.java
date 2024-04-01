@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("15.CheckBox");
         arrayList.add("22.rating bar");
         arrayList.add("25.Progress Bar");
+        arrayList.add("28 RecylerView");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
@@ -142,6 +143,12 @@ public class MainActivity extends AppCompatActivity {
                 else if(clickedItem.equals("25.Progress Bar")){
 
                     Intent i=new Intent(MainActivity.this,prgressBar.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("28 RecylerView")){
+
+                    Intent i=new Intent(MainActivity.this,Ex_RecyclerView.class);
                     startActivity(i);
 
                 }
