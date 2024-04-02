@@ -1,14 +1,16 @@
-
 import csv
 
 # Function to add a student
 def add_student():
-    name = input("Enter student name: ")
     roll_number = input("Enter roll number: ")
-    department = input("Enter department: ")
+    name = input("Enter student name: ")
+    mark1 = input("Enter Mark 1: ")
+    mark2 = input("Enter Mark 2: ")
+    mark3 = input("Enter Mark 3: ")
+    mark4 = input("Enter Mark 4: ")
     with open('students.csv', 'a', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow([name, roll_number, department])
+        writer.writerow([roll_number, name, mark1, mark2, mark3, mark4])
     print("Student added successfully.")
 
 # Function to search for a student
@@ -17,11 +19,14 @@ def search_student():
     with open('students.csv', 'r') as file:
         reader = csv.reader(file)
         for row in reader:
-            if roll_number in row:
+            if roll_number == row[0]:
                 print("Student found:")
-                print("Name:", row[0])
-                print("Roll Number:", row[1])
-                print("Department:", row[2])
+                print("Roll Number:", row[0])
+                print("Name:", row[1])
+                print("Mark 1:", row[2])
+                print("Mark 2:", row[3])
+                print("Mark 3:", row[4])
+                print("Mark 4:", row[5])
                 return
         print("Student not found.")
 
@@ -31,9 +36,12 @@ def list_all_students():
         reader = csv.reader(file)
         print("List of all students:")
         for row in reader:
-            print("Name:", row[0])
-            print("Roll Number:", row[1])
-            print("Department:", row[2])
+            print("Roll Number:", row[0])
+            print("Name:", row[1])
+            print("Mark 1:", row[2])
+            print("Mark 2:", row[3])
+            print("Mark 3:", row[4])
+            print("Mark 4:", row[5])
             print()
 
 # Function to update a student's information
@@ -44,10 +52,13 @@ def update_student():
         rows = list(reader)
     found = False
     for i, row in enumerate(rows):
-        if roll_number in row:
+        if roll_number == row[0]:
             name = input("Enter updated name: ")
-            department = input("Enter updated department: ")
-            rows[i] = [name, roll_number, department]
+            mark1 = input("Enter updated Mark 1: ")
+            mark2 = input("Enter updated Mark 2: ")
+            mark3 = input("Enter updated Mark 3: ")
+            mark4 = input("Enter updated Mark 4: ")
+            rows[i] = [roll_number, name, mark1, mark2, mark3, mark4]
             found = True
             break
     if found:
@@ -66,7 +77,7 @@ def delete_student():
         rows = list(reader)
     found = False
     for i, row in enumerate(rows):
-        if roll_number in row:
+        if roll_number == row[0]:
             del rows[i]
             found = True
             break
@@ -82,25 +93,25 @@ def delete_student():
 def main():
     while True:
         print("\nMenu:")
-        print("a) Add Student")
-        print("b) Search Student")
-        print("c) List All Students")
-        print("d) Update Student")
-        print("e) Delete Student")
-        print("f) Exit")
-        choice = input("Enter your choice: ").lower()
+        print("1) Add Student")
+        print("2) Search Student")
+        print("3) List All Students")
+        print("4) Update Student")
+        print("5) Delete Student")
+        print("6) Exit")
+        choice = input("Enter your choice: ")
 
-        if choice == 'a':
+        if choice == '1':
             add_student()
-        elif choice == 'b':
+        elif choice == '2':
             search_student()
-        elif choice == 'c':
+        elif choice == '3':
             list_all_students()
-        elif choice == 'd':
+        elif choice == '4':
             update_student()
-        elif choice == 'e':
+        elif choice == '5':
             delete_student()
-        elif choice == 'f':
+        elif choice == '6':
             print("Exiting program.")
             break
         else:
