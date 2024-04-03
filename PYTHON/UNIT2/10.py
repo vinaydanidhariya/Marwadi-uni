@@ -6,7 +6,7 @@ def zip_files(file_name):
     with zipfile.ZipFile(file_name, 'w') as zip:
         path = os.path.basename("PYTHON\UNIT 2\file1.txt")
         print(path)
-        zip.write(r"text.txt")
+        zip.write('text.txt')
         print('Files zipped successfully')
         
 def unzip_files(file_name):
