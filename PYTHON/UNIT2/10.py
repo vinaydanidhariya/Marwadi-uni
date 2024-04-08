@@ -12,16 +12,18 @@ import zipfile
 import os 
 def zip_files(file_name):
     with zipfile.ZipFile(file_name, 'w') as zip:
-        for folder, subfolders, files in os.walk(os.getcwd()):
-            for file in files:
-                zip.write(os.path.join(folder, file), os.path.relpath(os.path.join(folder, file), os.getcwd()), compress_type=zipfile.ZIP_DEFLATED)
+        zip.write('students.csv')
         print('Files zipped successfully')
-        
         
 def unzip_files(file_name):
     with zipfile.ZipFile(file_name, 'r') as zip:
+        zip.printdir()
         zip.extractall()
         print('Files unzipped successfully')
         
-zip_files('filessas.zip')
+zip_files('files.zip')
 unzip_files('files.zip')
+# Files zipped successfully
+# File Name                                             Modified             Size
+# students.csv                                   2024-04-08 16:01:02           24
+# Files unzipped successfully
