@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vinay.DetailActivity;
+import com.example.vinay.Ex_AlarmManager.AlarmNotification;
+import com.example.vinay.Ex_AlarmManager.Ex_AlarmManager;
 import com.example.vinay.ListItem;
 import com.example.vinay.R;
 
@@ -50,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("25.Progress Bar");
         arrayList.add("28 RecylerView");
         arrayList.add("29 Fragement");
+        arrayList.add("30 Alarm");
+
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
@@ -156,6 +160,12 @@ public class MainActivity extends AppCompatActivity {
                 else if(clickedItem.equals("29 Fragement")){
 
                     Intent i=new Intent(MainActivity.this,Ex_Fragement.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("30 Alarm")){
+
+                    Intent i=new Intent(MainActivity.this, Ex_AlarmManager.class);
                     startActivity(i);
 
                 }

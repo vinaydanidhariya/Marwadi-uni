@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,13 +17,13 @@
         android:theme="@style/Theme.Vinay"
         tools:targetApi="31">
         <activity
-            android:name=".Ex_AlarmManager"
+            android:name=".Ex_AlarmManager.Ex_AlarmManager"
             android:exported="false" />
         <activity
             android:name=".Ex_Fragement"
             android:exported="false" />
         <activity
-            android:name=".RecyclerView"
+            android:name=".Ex_RecyclerView"
             android:exported="false" />
         <activity
             android:name=".prgressBar"
@@ -61,9 +64,7 @@
         <activity
             android:name=".loginPage"
             android:exported="false" />
-        <activity
-            android:name=".Ex_RecyclerView"
-            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

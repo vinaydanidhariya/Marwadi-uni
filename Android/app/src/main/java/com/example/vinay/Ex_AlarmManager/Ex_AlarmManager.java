@@ -13,7 +13,6 @@ import com.example.vinay.R;
 
 public class Ex_AlarmManager extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
