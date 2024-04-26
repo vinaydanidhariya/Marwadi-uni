@@ -2,13 +2,13 @@ class Number:
     def __init__(self, value):
         self.value = value
 
-    def __add__(self, other):
+    def add(self, other):
         if isinstance(other, Number):
             return self.value + other.value
         else:
             return NotImplemented
 
-    def __sub__(self, other):
+    def sub(self, other):
         if isinstance(other, Number):
             return self.value - other.value
         else:
