@@ -28,9 +28,11 @@ class Course(Student):  # Inheriting from Student class
         print("Fee:", self.fee)
 
 
+student1 = Course(10, "Dhruv", "Male", 20, "Python Programming", "3 months", "3000")
+student1.display_course_info()
+
+
 #output:
-# student1 = Course(10, "Dhruv", "Male", 20, "Python Programming", "3 months", "3000")
-# student1.display_course_info()
 # Student Info:
 # Roll No: 10
 # Name: Dhruv
