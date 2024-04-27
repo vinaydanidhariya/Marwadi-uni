@@ -1,21 +1,16 @@
 from abc import ABC, abstractmethod
-import math
 
-class Shape(ABC):
+class MyAbstractClass(ABC):
     @abstractmethod
-    def calculate_area(self):
+    def my_method(self):
         pass
 
-class Circle(Shape):
-    def __init__(self, radius):
-        self.radius = radius
-    
-    def calculate_area(self):
-        return math.pi * self.radius**2
-    
-circle = Circle(5)
-print("Area of circle:", circle.calculate_area())
+class MyClass(MyAbstractClass):
+    def my_method(self):
+        print("Implementation of my_method")
 
+obj = MyClass()
+obj.my_method()
 
-# output
-# Area of circle: 78.53981633974483
+#output
+#Implementation of my_method
