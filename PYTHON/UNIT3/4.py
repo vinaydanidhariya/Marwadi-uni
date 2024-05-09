@@ -1,3 +1,6 @@
+4) Write a program to make use of inner class
+
+
 class Company:
     def __init__(self, name):
         self.name = name
