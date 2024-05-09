@@ -1,3 +1,6 @@
+#5) Create a Temperature class. Create 2 methods named convertFarenheit() 
+and convertCelsius()
+
 class Temperature:
     def convert_to_fahrenheit(self, celsius):
         return (celsius * 9/5) + 32
