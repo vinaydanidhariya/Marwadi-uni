@@ -1,3 +1,4 @@
+# 3) Write a program to make use of class method and instance method.
 class MyClass:
     class_variable = 10
 

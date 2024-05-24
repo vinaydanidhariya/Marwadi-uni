@@ -17,6 +17,6 @@ public class AlarmNotification extends BroadcastReceiver {
         Notification.Builder builder = new Notification.Builder(context);
         builder.setContentTitle("VINAY").setContentText("asadsa").setAutoCancel(true);
 
-        manager.notify(1,builder.build()'');
+//        manager.notify(1,builder.build());
     }
 }

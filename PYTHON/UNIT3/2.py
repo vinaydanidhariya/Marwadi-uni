@@ -1,3 +1,5 @@
+# 2) Write a program to create a class for student with RollNo, Name, Age,
+# Gender and methods named AddStudent() and DisplayStudent()
 class Student:
     university_name = 'Marwadi University'
     def setData(self,Rno,Name,dept,age,gender):

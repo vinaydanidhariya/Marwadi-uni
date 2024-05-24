@@ -1,4 +1,4 @@
-# write a prg to zip and unzip files using python
+# 10) Write a program to zip and unzip particular files.
 import zipfile
 def zip_files(file_name):
     with zipfile.ZipFile(file_name, 'w') as zip:
