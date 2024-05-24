@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.vinay.DetailActivity;
+import com.example.vinay.Ex_AlarmManager.AlarmNotification;
+import com.example.vinay.Ex_AlarmManager.Ex_AlarmManager;
 import com.example.vinay.ListItem;
 import com.example.vinay.R;
 
@@ -162,6 +164,12 @@ public class MainActivity extends AppCompatActivity {
                 } else if(clickedItem.equals("30 AlarmManager")){
 
                     Intent i=new Intent(MainActivity.this,AlarmManager.class);
+                    startActivity(i);
+
+                }
+                else if(clickedItem.equals("30 Alarm")){
+
+                    Intent i=new Intent(MainActivity.this, Ex_AlarmManager.class);
                     startActivity(i);
 
                 }
