@@ -1,16 +1,17 @@
 import socket
-host = 'localhost'
-port = 8090
+hostname = 'localhost'
+port = 12345
 
-client_socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-client_socket.connect((host,port))
-print("Connected To {}".format(host,port))
+client_socket.connect((hostname, port))
+print("Connected to server")
 while True:
-    message = input('Enter A message :')
-    client_socket.sendall(message.encode())
+    message = input("Enter message: ")
+    client_socket.send(message.encode())
+    if message == 'exit':
+        break
     data = client_socket.recv(1024).decode()
-    print(f'Received Response :{format(data)}')
-
-print('closing Connection ')
+    print('Received from server: ' + data)
+    
 client_socket.close()
