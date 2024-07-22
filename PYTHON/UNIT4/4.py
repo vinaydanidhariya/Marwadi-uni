@@ -1,38 +1,24 @@
+# 4) Write a program to enter the profit of 5 years and display the profit as
+# line graph.
+
 import matplotlib.pyplot as plt
 
-def enter_profits():
-    profits = []
-    print("Please enter the profits for each of the 5 years:")
+profit = []
+for i in range(5):
+    profit.append(int(input("Enter profit for year {}: ".format(i+1))))
     
-    for year in range(1, 6):
-        profit = float(input(f"Enter profit for Year {year}: "))
-        profits.append(profit)  
-    return profits  
-def display_line_graph(years, profits):
-    plt.plot(years, profits, marker='o')  
-    plt.title('Profit Over 5 Years')  
-    plt.xlabel('Year')  
-    plt.ylabel('Profit')
-    plt.grid(True)  
-    plt.show()  
+plt.plot(range(1, 6), profit)
 
-def main():
-    profits = enter_profits()
-    
-    years = list(range(1, 6))
-    
-    display_line_graph(years, profits)
+plt.xlabel("Year")
+plt.ylabel("Profit")
+plt.title("Profit vs Year")
 
-if __name__ == "__main__":
-    main()
+plt.show()
 
-#ouyput:
+# Output:
+# Enter profit for year 1: 300000
+# Enter profit for year 2: 500000
+# Enter profit for year 3: 700000
+# Enter profit for year 4: 900000
+# Enter profit for year 5: 1000000
 
-# Please enter the profits for each of the 5 years:
-# Enter profit for Year 1: 100
-# Enter profit for Year 2: 200
-# Enter profit for Year 3: 150
-# Enter profit for Year 4: 900
-# Enter profit for Year 5: 320
-
-#Figure_1.png

@@ -52,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("25.Progress Bar");
         arrayList.add("28 RecylerView");
         arrayList.add("29 Fragement");
-        arrayList.add("30 Alarm");
-
+        arrayList.add("30 AlarmManager");
 
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
         list.setAdapter(arrayAdapter);
@@ -160,6 +159,11 @@ public class MainActivity extends AppCompatActivity {
                 else if(clickedItem.equals("29 Fragement")){
 
                     Intent i=new Intent(MainActivity.this,Ex_Fragement.class);
+                    startActivity(i);
+
+                } else if(clickedItem.equals("30 AlarmManager")){
+
+                    Intent i=new Intent(MainActivity.this,AlarmManager.class);
                     startActivity(i);
 
                 }

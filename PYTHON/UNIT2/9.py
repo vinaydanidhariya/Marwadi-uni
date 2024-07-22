@@ -1,3 +1,11 @@
+# 9) Write a program to do student operations using menu as follows
+# a) Add Student
+# b) Search Student
+# c) List All Students
+# d) Update Student
+# e) Delete Student
+# f) Exit
+
 import csv
 
 # Function to add a student
