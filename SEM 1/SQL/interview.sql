@@ -1,0 +1,84 @@
+-- create table
+
+CREATE TABLE DEPARTMENT(
+    DEPT_ID NUMBER(10) PRIMARY KEY,
+    DEPT_NAME VARCHAR2(20),
+    BRANCH_NAME VARCHAR2(20),
+    DEPT_HEAD VARCHAR2(20),
+);
+INSERT INTO DEPARTMENT VALUES(
+    1,
+    'FOCA',
+    'MCA',
+    'SHIRDARNA'
+);
+
+INSERT INTO DEPARTMENT VALUES(
+    2,
+    'ENGG',
+    'B.TECH',
+    'xyz'
+);
+
+INSERT INTO DEPARTMENT VALUES(
+    3,
+    'PHARMA',
+    'B.FAM',
+    'abc'
+);
+
+
+INSERT INTO DEPARTMENT VALUES(
+    4,
+    'MBA',
+    'MBA',
+    'pqr'
+);
+
+CREATE TABLE STUDENT(
+    ROLL_NO NUMBER(10) PRIMARY KEY,
+    DEPT_ID NUMBER(10) REFERENCES DEPARTMENT(DEPT_ID),
+    NAME VARCHAR2(20),
+    MARKS NUMBER(100),
+);
+
+
+INSERT INTO STUDENT VALUES(
+    10,
+    1,
+    'Rahul',
+    90
+);
+
+
+INSERT INTO STUDENT VALUES(
+    20,
+    2,
+    'Raj',
+    80
+);
+
+
+INSERT INTO STUDENT VALUES(
+    30,
+    3,
+    'Ravi',
+    70
+);
+
+
+
+
+-- join 
+SELECT 
+    S.ROLL_NO,
+    S.NAME,
+    S.MARKS,
+    D.DEPT_NAME
+FROM STUDENT S
+INNER JOIN DEPARTMENT D
+ON S.DEPT_ID = D.DEPT_ID;
+
+
+
+
